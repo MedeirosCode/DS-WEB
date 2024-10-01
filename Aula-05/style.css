@@ -1,0 +1,68 @@
+/*---Começoda estilização de bordas---*/
+
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+
+p.groove {
+    border: 3px;
+    border-style: groove;
+}
+p.ridge {
+    border: 3px;
+    border-style: ridge;
+}
+p.inset {
+    border: 3px;
+    border-style: inset;
+}
+p.outset {
+    border: 3px;
+    border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+
+/*---Fim da estilização das bordas---*/
+
+
+
+/*--- comentario --- */
+.control-margin{
+    border: 1px solid black;
+    margin: 5% 10% 1%;
+    margin-top: 5%;
+    margin-right: 10%;
+    margin-bottom: 1%;
+    margin-left: 20%;
+}
+.control-padding{
+    border: 1px solid black;
+    padding: 20px 10% 10px 20%;
+    padding-top: 20px;
+    margin-right: 10%;
+    margin-bottom: 10px;
+    margin-left: 20%;
+}
+
+.control-height-width{
+    height: 300px ;
+    max-width: 300%;
+    border: 1px solid black
+}
+
+.div-pai{
+    margin: 20px;
+    height: 300px;
+    width: 600px;
+    background-color: darkgrey
+}
+
+.div-filho{
+    width: 60%;
+    height: 40px;
+    margin: auto;
+    background-color: darkmagenta;
+    text-align: center;
+}
