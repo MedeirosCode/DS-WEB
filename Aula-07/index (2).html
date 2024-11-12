@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserção de Vídeo em HTML</title>
+    <style>
+        /* Ajusta o vídeo para ocupar 100% do espaço do contêiner */
+        video {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inserção de Vídeo em HTML</h1>
+
+    <!-- Vídeo do YouTube -->
+    <section>
+        <h2>Vídeo do YouTube</h2>
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/gajnfDfiOco" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <br>
+
+    <!-- Vídeo com capa e controles ocupando 100% do espaço do contêiner -->
+    <section>
+        <h2>Vídeo com Capa e Controles</h2>
+        <video src="mu.mp4" poster="livinho.jpg" controls></video>
+    </section>
+
+    <br>
+
+    <!-- Vídeo com autoplay e sem áudio ocupando 100% do espaço do contêiner -->
+    <section>
+        <h2>Vídeo com Autoplay e Sem Áudio</h2>
+        <video src="oi.mp4" autoplay muted></video>
+    </section>
+
+    <br>
+
+    <!-- Vídeo com loop e autoplay ocupando 100% do espaço do contêiner -->
+    <section>
+        <h2>Vídeo com Loop e Autoplay</h2>
+        <video src="oi.mp4" loop autoplay muted></video>
+    </section>
+
+    <br>
+
+    <!-- Vídeo com autoplay e áudio silenciado ocupando 100% do espaço do contêiner -->
+    <section>
+        <h2>Vídeo com Autoplay e Áudio Silenciado</h2>
+        <video src="oi.mp4" autoplay loop muted></video>
+    </section>
+</body>
+</html>
