@@ -4,140 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula-03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1, h3 {
+            color: #444;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        ul ul, ol ol {
+            margin-left: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        div {
+            margin: 15px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        div.black {
+            background-color: black;
+            color: white;
+        }
+
+        input, select, textarea, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        button, input[type="submit"] {
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <h1>Bem vindo!</h1>
     <p>Este é um exemplo simples de uma página HTML</p>
-    <h3>Não numeradas</h3>
+
+    <h3>Listas não numeradas</h3>
     <ul>
         <li>Item 1</li>
-        <li>Item 2</li>
-        <li>
-        <ul>
-            <li>Item 2.1</li>
-        <ul>
-            <li>Item 2.1.1</li>
-    </ul>
+        <li>Item 2
+            <ul>
+                <li>Item 2.1
+                    <ul>
+                        <li>Item 2.1.1</li>
+                    </ul>
+                </li>
+            </ul>
         </li>
     </ul>
 
     <h3>Listas numeradas</h3>
     <ol>
         <li>Primeiro</li>
-        <li>Segundo</li>
-        <ol>
-            <li>Definição</li>
-        </ol>
+        <li>Segundo
+            <ol>
+                <li>Definição</li>
+            </ol>
+        </li>
     </ol>
+
     <h3>Definição</h3>
     <dl>
-    <dt>HTML</dt>
-    <dd>Hypertext Markup Language</dd>
-
-    <dt>CSS</dt>
-    <dd>Cascading Style Sheets</dd>
+        <dt>HTML</dt>
+        <dd>Hypertext Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
     </dl>
 
     <h3>Elementos em nível de bloco</h3>
-    <p> elemento em nível de bloco sempre começa em uma nova linha e os navegadores adicionam automaticamente algum espaço (uma margem) antes e depois do elemento.</p>
+    <p>Elemento em nível de bloco sempre começa em uma nova linha e ocupa toda a largura disponível.</p>
+    <p>Exemplos: `<p>` e `<div>`.</p>
 
-    <p>Um elemento de nível de bloco sempre ocupa toda a largura disponível (estende-se para a esquerda e para a direita tanto quanto possível).</p>
-
-    <p>Dois elementos de bloco comumente usados ​​são: < p > e < div >.</p>
-
-    <p>O elemento < p > define um parágrafo em um documento HTML.</p>
-
-    <p>O elemento < div > define uma divisão ou seção em um documento HTML.</p>
-
-<h3>DIV - Divisão, seção ou bloco</h3>
-
-<div style = "border:solid 2px;padding: 15px; margin: 15px" > eu sou uma div </div>
-
-<div style="background-color:black;color:white;padding:20px;">
-    <h2>London</h2>
-    <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+    <h3>DIV - Divisão ou seção</h3>
+    <div>Eu sou uma div</div>
+    <div class="black">
+        <h2>London</h2>
+        <p>London is the capital city of England.</p>
+        <p>Standing on the River Thames, London has been a major settlement for two millennia.</p>
     </div>
 
-    <p>Minha mãe tem olhos <span style="color:blue;font-weight:bold;">azuis</span> e meu pai tem os olhos <span style="color:darkolivegreen;font-weight:bold;">verde escuro</span></p>
-    
-    
-    <span>Minha mãe tem olhos azuis</span>
+    <p>Minha mãe tem olhos <span style="color:blue; font-weight:bold;">azuis</span> e meu pai tem olhos <span style="color:darkolivegreen; font-weight:bold;">verde escuro</span>.</p>
 
     <h3>Input - Tipos de entrada de dados</h3>
+    <label>Texto:</label> <input type="text"><br>
+    <label>Número:</label> <input type="number"><br>
+    <label>Senha:</label> <input type="password"><br>
+    <input type="radio" name="opcao" value="HTML"> HTML<br>
+    <input type="checkbox" value="CSS"> CSS<br>
+    <input type="button" value="Botão de ação"><br>
+    <input type="submit" value="Enviar"><br>
 
-    <br><br><br>
-    <label>Input do tipo text</label>
-    <input type ="text">
-    <br><br>
-    <label>Input do tipo number</label>
-    <input type = "number">
-    <br><br>
-    <label>Input do tipo password</label>
-    <input type ="password">
-    <br><br>
-    
-    <input type ="radio value="HTML">
-    <label>HTML</label>
-    <br><br>
-    
-    <input type ="checkbox" value = "CSS">
-    <label> CSS </label>
-    <br><br>
-    
-    <input type ="button" value = "botão de ação">
-    <br><br>
-    
-    <input type ="Submit" value = " Botão de submit">
-    <br><br>
+    <h3>Formulário</h3>
+    <form action="/enviar" method="get">
+        <label>Nome:</label><br>
+        <input type="text" name="nome"><br>
+        <label>Campo com placeholder:</label><br>
+        <input type="text" placeholder="Digite aqui"><br>
+        <label>Campo obrigatório:</label><br>
+        <input type="text" required><br>
+        <textarea name="mensagem" rows="4" cols="50"></textarea><br>
+        <label>Escolha uma opção:</label>
+        <select>
+            <option>Opção 1</option>
+            <option>Opção 2</option>
+        </select><br>
+        <input type="submit" value="Enviar">
+    </form>
 
-    <h3>Form - Formulário</h3>
-
-<form action="/enviar" method="get">
-    <label>Nome do usuário</label><br>
-    <input type = "text" name = "nome"><br>
-
-    <label>Campo com value preenchido</label><br>
-    <input type = "text" value = "value"><br>
-    
-    <label>Placeholder</label><br>
-    <input type="text" name="placeholder" placeholder="Teste medeiros"><br>
-    
-    <label>Campo com Required</label><br>
-    <input type="text" name="required" required><br>
-    
-    <label>Campo com maxlenght</label><br>
-    <input type="text" name="maxlenght" maxlength = "8" ><br>
-    
-    <label>Campo com disabled</label><br>
-    <input type="text" name="disabled" disabled><br>
-    
-    <label>Campo com readonly</label><br>
-    <input type="text" name="readonly" readonly><br>
-
-    <label>Campo com boa validação</label><br>
-    <input type="text" name="BoaValidacao" maxlength= "8" required placeholder="Campo com boa validação"><br>
-
-    <textarea name="mensagem"></textarea><br>
-    <select name="opcoes">
-    <option>Opção 1</option>
-    <option>Opção 2</option>
-    <option>Opção 3</option>
-    <option>Opção 4</option>
-
-    </select>
-
-    <input type = "submit">
-
-</form>
-
-<p> name: Nome do campo, utilizado no envio dos dados.</p>
-<p>  value: Valor padrão do campo.</p>
-<p>  placeholder: Texto exibido dentro do campo até que o usuário comece a digitar.</p>
-<p>  required: Torna o campo obrigatório.´</p>
-<p>  maxlength: Limita o número de caracteres inseridos.</p>
-<p>  disabled: Desabilita o campo, impedindo interação.</p>
-<p>  readonly: Torna o campo apenas leitura.</p>
-
+    <a href="file:///C:/Users/Aluno/Downloads/Aulas%20HTML/index.html">
+        <button>Botão retorno ao lobby</button>
+    </a>
 </body>
 </html>

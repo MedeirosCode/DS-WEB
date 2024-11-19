@@ -5,10 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 05</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #444;
+        }
+
+        .dotted {
+            border: 2px dotted #007BFF;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .dashed {
+            border: 2px dashed #28A745;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .solid {
+            border: 2px solid #DC3545;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .double {
+            border: 4px double #FFC107;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .groove {
+            border: 4px groove #17A2B8;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .ridge {
+            border: 4px ridge #6C757D;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .inset {
+            border: 4px inset #343A40;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .outset {
+            border: 4px outset #6610F2;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .none {
+            border: none;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .hidden {
+            border: hidden;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .mix {
+            border-top: 2px solid #007BFF;
+            border-right: 2px dotted #28A745;
+            border-bottom: 2px dashed #DC3545;
+            border-left: 2px double #FFC107;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .control-margin {
+            margin: 20px;
+            background-color: #E9ECEF;
+            padding: 10px;
+            border: 2px solid #6C757D;
+            border-radius: 5px;
+        }
+
+        .control-padding {
+            padding: 20px;
+            background-color: #F8F9FA;
+            border: 2px solid #343A40;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .control-height-width {
+            height: 200px;
+            width: 300px;
+            background-color: #FFC107;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .div-pai {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #007BFF;
+            background-color: #E9ECEF;
+            border-radius: 10px;
+            width: 60%;
+        }
+
+        .div-filho {
+            padding: 20px;
+            border: 2px dashed #28A745;
+            background-color: #FFF3CD;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h2>As propriedades do estilo da Borda</h2>
-    <p>Existem bordas especificas a serem exibidas</p>
+    <h2>As Propriedades do Estilo da Borda</h2>
+    <p>Existem bordas específicas a serem exibidas:</p>
 
     <p class="dotted">Uma dotted border.</p>
     <p class="dashed">Uma dashed border.</p>
@@ -18,27 +162,28 @@
     <p class="ridge">Uma ridge border.</p>
     <p class="inset">Uma inset border.</p>
     <p class="outset">Uma outset border.</p>
-    <p class="none">Uma border.</p>
+    <p class="none">Uma border sem estilo.</p>
     <p class="hidden">Uma hidden border.</p>
     <p class="mix">Uma mixed border.</p>
 
     <div class="control-margin">
-        <h1> Aprendendo a controlar a Margin </h1>
+        <h1>Aprendendo a Controlar a Margin</h1>
     </div>
     <div class="control-padding">
-        <h1> Aprendendo a controlar o Padding</h1>
+        <h1>Aprendendo a Controlar o Padding</h1>
     </div> 
     <div class="control-height-width">
-        <h1> Aprendendo a controlar o tamanho</h1>
+        <h1>Aprendendo a Controlar o Tamanho</h1>
+    </div> 
 
     <div class="div-pai">
-        <div class = "div-filho">
+        <div class="div-filho">
             <h1>Manipulando Divs</h1>
         </div>
     </div>
 
-
-
+    <a href="file:///C:/Users/Aluno/Downloads/Aulas%20HTML/index.html">
+        <button>Retornar ao Lobby</button>
+    </a>
 </body>
 </html>
-
