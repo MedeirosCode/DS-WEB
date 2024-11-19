@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoclasse</title>
+    <style>
+        
+        .button-hover:hover{
+            background-color:green;
+            width: 100px;
+            height: 100px;
+        }
+
+        .button-active:active {
+            transform: scale(1.5);
+        }
+        .input-focus:focus {
+        color: blue;
+        background-color: red;
+        }
+
+        .radio-checked:checked{
+            transform: scale(1.5);
+        }
+        .checkbox-checked:checked{
+            transform: scale(1.5);
+        }
+
+        a:visited{
+            color:red;
+        }
+
+        a:link{
+            color:chocolate;
+        }
+        div:empty{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>Exemplo de houver</h3>
+        <button class="button-hover">Clique aqui</button>
+    </div>
+    <div>
+        <h3>Exemplo de active</h3>
+        <button class="button-active">Clique aqui</button>
+    </div>
+    <div>
+        <h3>Exemplo de focus</h3>
+        <input type="text" class="input-focus" placeholder="clique aqui">
+    </div>
+    <div>
+        <h3>Exemplo de checked</h3>
+        <label>Radio button</label>
+        <input type="radio" class="radio-checked"><input type="radio" class="radio-checked">
+        <label>Checkbox</label>
+        <input type="checkbox" class="checkbox-checked">
+    </div>
+    <div>
+        <h3>Exemplode Pseudoclasse para div</h3>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+        <a href="#">Link 6</a>
+        <a href="#">Link 7</a>
+        <a href="#">Link 8</a>
+        <a href="#">Link 9</a>
+        <a href="#">Link 10</a>
+
+    </div>
+
+    <div class="div-vazia"></div>
+</body>
+</html>
