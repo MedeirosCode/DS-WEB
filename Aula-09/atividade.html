@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeitos</title>
+    <style>
+        /*Atençaõ!!! Tô mandando arquivo solto sem estar no github, pois sexta feira dia 22/11 eu faltarei pois estarei viajando e não conseguirei enviar pela minha máquina*/
+         .container {
+        display:flex; /* Alinha os elementos horizontalmente */
+        gap: 40px; /* Espaçamento entre os itens */
+         }
+        body{
+            background: linear-gradient(#ff7e5f, #feb47b);
+        }
+
+        .box {
+        width: 100px;
+        height: 100px;
+        background-color: #3498db;
+        transition: transform 0.5s;
+        }
+        .box:hover {
+        transform: scale(1.5);
+        }
+
+        .oi {
+        width: 100px;
+        height: 100px;
+        background-color: #db1515;
+        transition: transform 0.5s;
+        }
+        .oi:hover {
+        transform: rotate(45deg);
+        }
+
+        .ai {
+        width: 100px;
+        height: 100px;
+        background-color: #d9ff00;
+        transition: transform 0.5s;
+        }
+        .ai:hover {
+        transform: translate(50px, 50px);
+        }
+
+        .ei {
+        width: 100px;
+        height: 100px;
+        background-color: #1eff00;
+        border-radius: 50%;
+        }
+
+        .ui {
+        width: 100px;
+        height: 100px;
+        background-color: #ff00bf;
+        opacity: 1;
+        transition: opacity 0.5s;
+        }
+        .ui:hover {
+        opacity: 0.5;
+        }
+
+        @keyframes moverEfeito {
+        0% {
+        transform: translateX(0);
+        background-color: red;
+        }
+        50% {
+        transform: translateX(200px);
+        background-color: yellow;
+        }
+        100% {
+        transform: translateX(0);
+        background-color: green;
+        }
+        }
+        /* Aplica a animação ao elemento */
+        .animado {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation: moverEfeito 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="box"></div><br><br>
+    <div class="oi"></div><br><br>
+    <div class="ai"></div><br><br>
+    <div class="ei"></div><br><br>
+    <div class="ui"></div><br><br>
+    <div class="animado"></div><br><br>
+</div>
+</body>
+</html>
