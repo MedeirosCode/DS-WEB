@@ -7,9 +7,9 @@ $banco = 'loja';
 $conexao = mysqli_connect($host, $usuario, $senha, $banco);
 // Verificar se a conexão foi bem-sucedida
 if (!$conexao) {
-die('Erro na conexão: ' . mysqli_connect_error());
+die('<span style="color:red;">Erro na conexão: <br></span>' . mysqli_connect_error());
 }
 echo"<br>";
-echo '<span style="color: red;">Conexão bem-sucedida!<br></span>';
+echo '<strong><span style="color: darkgreen;">Conexão bem-sucedida!<br></span></strong>';
 
 ?>
