@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            color: red;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        p {
+            color: blueviolet;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .exemplo {
+            color: turquoise;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        button {
+            text-align: center;
+            color: red;
+            justify-content: center;
+            display: flex;
+        }
+    </style>
+    <title>Aula 02</title>
+</head>
+<body>
+    <h1>Primeiros passos com DOM</h1>
+    <p>Primeiro parágrafo</p>
+    <p>Segundo parágrafo</p>
+    <p>Terceiro parágrafo</p>
+    <p id="quarto-paragrafo"></p>
+    <p id="teste"></p> <!-- Criando o ID -->
+
+    <h1>Segunda utilidade</h1>
+    <h1>Terceiro Exemplo</h1>
+    <div class="exemplo">Element1</div><br>
+    <div class="exemplo">Element2</div><br>
+
+    <h1>Quarto passo com DOM</h1>
+    <p>Esse é um parágrafo</p>
+    <p id="paragrafo">Esse é outro parágrafo</p>
+
+    <h1>Eventos do DOM</h1>
+    <button onclick="alertaDeClique()">Clique aqui!</button>
+
+    <p>Número 1:</p>
+    <input type="number" id="numero1">
+    <p>Número 2:</p>
+    <input type="number" id="numero2">
+    <br>
+    <button onclick="calcular()">Realize o cálculo</button>
+    <br>
+    <p id="resultado"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
