@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atvidade 09</title>
+    <style>
+        body {
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1, input, button, p {
+            margin: 10px 0;
+        }
+        input, button {
+            width: 500px;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid black;
+            background-color: lightgreen;
+        }
+    </style>
 </head>
 <body>
     <h3>Digite o primeiro valor</h3>
@@ -12,7 +33,7 @@
     <h3>Digite o segundo valor</h3>
     <input type="number" id="segundo">
 
-    <h3>Escolha a operação 1 para Adição, 2 para subtração, 3 para mutiplicação, 4 para divisão</h3>
+    <h3>Escolha a operação: 1 para Adição, 2 para subtração, 3 para mutiplicação, 4 para divisão</h3>
     <input type="number" id="operacao"></input>
 
     <button onclick="alertaDeClique()">Clique aqui para realizar a operação</button>

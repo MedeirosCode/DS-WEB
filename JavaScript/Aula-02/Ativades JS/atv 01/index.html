@@ -5,11 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <title>Atv 01</title>
+    <style>
+        body {
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1, input, button, p {
+            margin: 10px 0;
+        }
+        input, button {
+            width: 500px;
+            height: 40px;
+            border-radius: 10px;
+            border: 2px solid black;
+            background-color: lightgreen;
+        }
+    </style>
 </head>
 <body>
     <h1>Recebendo o nome de uma pessoa</h1>
-    
     <input type="text" id="nome">
+    
     <button onclick="alertaDeClique()">Envie aqui</button>
 
     <p id="oi"></p>
