@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos de Teclado em JS</title>
+</head>
+<body>
+  <h1>Exemplo de Eventos keydown, keyup e keypress</h1>
+  <input type="text" id="inputBox" placeholder="Pressione alguma tecla">
+  <div id="output"></div>
+
+  <script>
+    const input = document.getElementById('inputBox');
+    const output = document.getElementById('output');
+
+    input.addEventListener('keydown', function(event) {
+      output.innerHTML += `<p><strong>keydown:</strong> ${event.key}</p>`;
+    });
+
+    input.addEventListener('keyup', function(event) {
+      output.innerHTML += `<p><strong>keyup:</strong> ${event.key}</p>`;
+    });
+
+    input.addEventListener('keypress', function(event) {
+      output.innerHTML += `<p><strong>keypress:</strong> ${event.key}</p>`;
+    });
+  </script>
+</body>
+</html>
