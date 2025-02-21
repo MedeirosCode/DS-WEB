@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 03</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            flex-direction: column;
+        }
+        h3,h1{
+            text-align: center;
+        }
+        .oi{
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Criando um gerador de cartôes dinâmicos</h1>
+    
+    
+
+    <div class="oi">
+        <h3>Digite seu nome:</h3>
+        <input type="text" id="nome">
+        
+        <h3>Digite uma descrição:</h3>
+        <input type="text" id="descricao">
+        <br>
+        
+        <button onclick="alertaDeClique()">Criar botão!</button>
+        <br>
+        <div id="container"></div> 
+    </div>
+    
+    <div id="cartoes"></div>
+    <br><br>
+</body>
+    <script>
+        function alertaDeClique(){
+            var nome = document.getElementById("nome").value;
+
+            var descricao = document.getElementById("descricao").value;
+
+            var div = document.createElement("div");
+            
+
+// Estilos modernos
+div.style.background = '#4a4a4a'; 
+div.style.width = '400px';
+div.style.height = '400px';
+div.style.position = 'absolute';
+div.style.top = '50%';
+div.style.left = '50%';
+div.style.transform = 'translate(-50%, -50%)';
+div.style.display = 'flex';
+div.style.alignItems = 'center';
+div.style.justifyContent = 'center';
+div.style.borderRadius = '10px';
+div.style.boxShadow = '4px 4px 10px rgba(0, 0, 0, 0.3)';
+div.style.color = 'white';
+div.style.fontSize = '18px';
+
+
+document.body.appendChild(div);
+
+
+            
+
+            div.textContent = `Cartão criado: ${nome} < ${descricao} ` ;            
+
+            var divconteudo = document.getElementById("cartoes");
+            
+
+            divconteudo.appendChild(div);
+
+            div.setAttribute("id" , "div1")
+
+            var botaoExcluir = document.createElement("button");
+            botaoExcluir.textContent = "Excluir";
+
+
+
+
+
+            botaoExcluir.onclick = function() {
+                div.remove();
+            };
+
+            div.appendChild(botaoExcluir);
+
+    
+            
+            
+
+           
+
+            
+        }
+    </script>
+</html>

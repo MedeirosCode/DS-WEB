@@ -117,7 +117,7 @@
 
         <!-- Exibição dos Clientes -->
         <div class="clientes">
-            <h2>Clientes cadastrados</h2>
+            <h2>Já cadastrados</h2>
 
             <?php
             // Conectando ao banco de dados

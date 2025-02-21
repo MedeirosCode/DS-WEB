@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Criando um gerador de cartôes dinâmicos</h1>
+
+    <form action="exemplo.html" method="post">
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" />
+    <br>
+  
+  <br>
+
+    <label for="descricao">Descricao:</label>
+    <input type="text" id="descricao" />
+    <br>
+  
+  <br>
+
+    <button onclick="alertaDeClique()">Criar cartao!</button>
+    <br>
+</body>
+<script>
+
+    function alertaDeClique(){
+    var nome = document.getElementById("nome").value;
+
+    var descricao = document.getElementById("descricao").value;
+
+    var div = document.createElement("div");
+   
+
+    
+    div.textContent = "isso é um exemplo de paragrafo";
+
+    div.setAttribute("id" , "div1");
+    div1.style.background = 'red';
+    div1.style.width = '200px';
+    div1.style.height = '400px';
+
+    var divconteudo = document.getElementById("nome" , "descricao");
+
+    divconteudo.appendChild(div)
+    }
+</script>
+</html>
