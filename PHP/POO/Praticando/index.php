@@ -13,14 +13,14 @@
             margin: 0;
         }
 
-        .container {
+        .oi {
             display: flex;
             justify-content: center;
             gap: 30px;
             padding: 20px;
         }
 
-        .produtos {
+        .ei {
             background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
@@ -31,7 +31,7 @@
             margin-bottom: 20px;
         }
 
-        .clientes{
+        .ui{
             text-align: center;
             margin-bottom: 20px;
             background-color: #fff;
@@ -92,17 +92,14 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-        }
-
-        .tabela-clientes th {
             background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Cadastro de Produtos -->
-        <div class="produtos">
+    <div class="oi">
+        
+        <div class="ei">
             <h2>Adicionando nome e email para o BD com PDO</h2>
             <form action="dados.php" method="POST">
                 <label for="nome">Nome:</label>
@@ -115,20 +112,20 @@
             </form>
         </div>
 
-        <!-- Exibição dos Clientes -->
-        <div class="clientes">
+       
+        <div class="ui">
             <h2>Já cadastrados</h2>
 
             <?php
-            // Conectando ao banco de dados
+            
             include_once('conection.php');
 
-            // Consultando os clientes
-            $dados = $db->query("SELECT * FROM clientes");
-            $todos = $dados->fetchAll(PDO::FETCH_ASSOC); // Pega todos os resultados
+            
+            $dados = $db->query("SELECT * FROM clientes");//query - usado para realizar consultas no banco de dados
+            $todos = $dados->fetchAll(PDO::FETCH_ASSOC); 
 
             if (count($todos) > 0) {
-                // Exibindo a tabela de clientes
+                
                 echo '<table class="tabela-clientes">';
                 echo '<tr><th>ID</th><th>Nome</th><th>Email</th></tr>';
                 foreach ($todos as $linha) {

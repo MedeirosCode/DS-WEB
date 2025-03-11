@@ -24,7 +24,7 @@
             background-color: #fff;
             padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 10px;
             width: 300px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -97,17 +97,30 @@ document.body.appendChild(div);
 
             
 
-            div.textContent = `Cartão criado: ${nome} < ${descricao} ` ;            
+            div.textContent = `Cartão criado: Me chamo ${nome} e ${descricao}` 
+            echo ="<br>";            
 
             var divconteudo = document.getElementById("cartoes");
             
 
             divconteudo.appendChild(div);
 
-            div.setAttribute("id" , "div1")
+            div.setAttribute("id" , "div1");
+
+
 
             var botaoExcluir = document.createElement("button");
+            echo ="<br>"; 
             botaoExcluir.textContent = "Excluir";
+            botaoExcluir.style.background = 'red';
+            botaoExcluir.style.display = 'flex';
+            botaoExcluir.style.alignItems = 'center';
+            botaoExcluir.style.justifyContent = 'center';
+            botaoExcluir.style.top = '-50%';
+            botaoExcluir.style.left = '-50%';
+            div.style.transform = 'translate(-50%, -50%)';
+
+            
 
 
 

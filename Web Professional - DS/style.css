@@ -1,0 +1,93 @@
+body {
+    background-color: #f1dbbf;
+}
+ul {
+    padding-inline-start: 0em;
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+li {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    list-style: none;
+}
+li .meumenu {
+   font-family: 'open_sansbold';
+   font-size: 1.6em;
+   text-decoration: none;
+   color: #3f1605;
+   border: 0 1px 0 0 #3f1605;
+   border-bottom: 4px solid transparent;
+   transition: border-bottom .3s linear;
+}
+li .meumenu:hover {
+    border-bottom: 4px solid  hwb(29 7% 42%);
+}
+li .meumenu-active {
+    border-bottom: 4px solid hwb(29 7% 42%);
+}
+
+.container {
+    margin: 0 auto;
+    width: 500px;
+}
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px 30px 30px;
+    border-radius: 8px;
+    background: #883c0c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+form{
+    width: 100%;
+}
+.menu {
+    background-color: hsl(25, 56%, 58%); 
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+
+
+
+
+
+
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+input textarea {
+    width: 100%;
+    padding: 8px 0px 8px 0px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type=submit] {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: hwb(35 3% 12% / 0.916);
+    color: white;
+    font-size: 16px;
+   
+
+    border-radius: 10px
+}
+input:hover[type=submit] {
+    background-color: #2861a7;
+}

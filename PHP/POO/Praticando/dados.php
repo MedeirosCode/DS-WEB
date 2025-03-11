@@ -21,7 +21,7 @@ foreach ($todos as $linha) {
     echo "Email: " . $linha['email'] . "<br><br>";
 }
 
-// Após a execução, redireciona para o 'index.php' após 2 segundos
+// Após a execução, redireciona para o 'index.php'
 header('Location: index.php');
 exit; // Importante para garantir que o script pare de rodar após o redirecionamento
 ?>
