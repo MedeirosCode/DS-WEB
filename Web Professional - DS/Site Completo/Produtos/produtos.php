@@ -110,9 +110,10 @@
     </div>
     </table>
         <br><br>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="./assets/js/script.js"></script>
 <script src="https://kit.fontawesome.com/128c4fe943.js" crossorigin="anonymous"></script>
 </html>

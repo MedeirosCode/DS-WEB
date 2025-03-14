@@ -69,8 +69,13 @@ body {
 .ia{
     list-style: none;
     display: flex;
-    margin-right: 480px;
+    margin-left: 480px;
     
+}
+.lucas{
+    list-style: none;
+    display: flex;
+    margin-right: 480px;
 }
 li {
     margin: 0 15px;
@@ -163,7 +168,8 @@ p {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    
+    display: flex;
+    flex-direction: column;
     margin:10px;
     border: 1px solid black;
 }
@@ -203,12 +209,13 @@ input[type="submit"] {
     color: white;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
+    
     transition: background 0.3s;
     border: none;
     padding: 10px;
     border-radius: 5px;
-    margin-top: 15px;
+    
+    margin-top: 10px;
 }
 
 input[type="submit"]:hover {
@@ -268,7 +275,7 @@ tr:hover {
     margin-bottom: 10px;
     transition: all 0.3s ease-in-out;
     color: red;
-   
+    margin-bottom: 10px; 
 }
 
 /* Erro */
@@ -293,13 +300,13 @@ tr:hover {
 } */
 
 button {
-    position: absolute;
+    
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    cursor: pointer;
+    
     padding: 10px;
     font-size: 24px;
 }

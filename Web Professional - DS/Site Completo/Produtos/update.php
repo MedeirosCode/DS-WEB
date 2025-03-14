@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business System - Clientes </title>
+    <title>Alterar clientes </title>
     <link rel="shortcut icon" type="imagex/png" href="./assets/img/ico.svg">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -24,7 +24,7 @@
 
 
     <div class="container">
-        <hr>
+    
         <?php  
         if($_SERVER['REQUEST_METHOD'] != 'GET' OR !isset($_GET['id'])){
             header("Location: produtos.php");
@@ -81,9 +81,10 @@
     
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <br><br>
+    
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./assets/js/script.js"></script>
 <script src="https://kit.fontawesome.com/128c4fe943.js" crossorigin="anonymous"></script>
 </html>

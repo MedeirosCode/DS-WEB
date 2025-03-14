@@ -28,7 +28,7 @@ $total_clientes = $clientes->fetch(PDO::FETCH_ASSOC)['total_clientes'];
         <div class="logo">
             <img src="./assets/img/logo-arrumada.png" alt="Logotipo Mavi Pets">
         </div>
-        <ul class="ia">
+        <ul class="lucas">
             <li><a href="index.php" class="meumenu">Home</a></li>
             <li><a href="./Clientes/clientes.php" class="meumenu">Clientes</a></li>
             <li><a href="produtos.php" class="meumenu">Produtos</a></li>
