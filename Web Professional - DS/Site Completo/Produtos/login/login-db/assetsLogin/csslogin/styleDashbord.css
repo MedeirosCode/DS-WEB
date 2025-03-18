@@ -13,22 +13,6 @@ body {
     text-align: center;
 }
 
-/* Menu */
-.menu {
-    background-color: #423024;
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    
-    z-index: 1000; /* Garante que fique sobre outros elementos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
-}
 
 .logo img {
     height: 45px;
@@ -37,57 +21,21 @@ body {
     border-radius:10px;
 }
 
-.oi {
-    list-style: none;
-    display: flex;
-    margin-right: 380px;
-  
-    
-}
-.ei{
-    list-style: none;
-    display: flex;
-    margin-right: 480px;
-
-}
-.ai{
-    list-style: none;
-    display: flex;
-    margin-right: 390px;
-    margin-left: 390px; 
-}
-
-li {
-    margin: 0 15px;
-    
-}
-
-.meumenu {
-    font-size: 1.4em;
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.meumenu:hover, 
-.meumenu-active {
-    background: rgba(255, 255, 255, 0.2);
-}
-
 /* Container */
-.container {
+.containerei {
     width: 90%;
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 5px;
     background: #6b4635;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     border: 1px solid black;
 }
+
+
+
 
 h1 {
     font-size: 2em;
@@ -105,13 +53,13 @@ p {
 
 /* Formulário */
 .formulario {
-    padding: 20px;
+    padding: 10px;
     background: #ffedd8;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
     margin:10px;
-    border: 1px solid black;
+    border: 5px solid #6b4635;
 }
 
 
@@ -153,6 +101,7 @@ input[type="submit"]:hover {
 
 /* Tabela */
 table {
+    margin-top: 20px;
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -207,5 +156,4 @@ tr:hover {
 }
 
 /* Erro */
-
 

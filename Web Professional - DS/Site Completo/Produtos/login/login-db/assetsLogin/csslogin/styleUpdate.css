@@ -13,22 +13,7 @@ body {
     text-align: center;
 }
 
-/* Menu */
-.menu {
-    background-color: #423024;
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    
-    z-index: 1000; /* Garante que fique sobre outros elementos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional */
-}
+
 
 .logo img {
     height: 45px;
@@ -37,53 +22,15 @@ body {
     border-radius:10px;
 }
 
-.oi {
-    list-style: none;
-    display: flex;
-    margin-right: 380px;
-  
-    
-}
-.ei{
-    list-style: none;
-    display: flex;
-    margin-right: 480px;
-
-}
-.ai{
-    list-style: none;
-    display: flex;
-    margin-right: 390px;
-    margin-left: 390px; 
-}
-
-li {
-    margin: 0 15px;
-    
-}
-
-.meumenu {
-    font-size: 1.4em;
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-.meumenu:hover, 
-.meumenu-active {
-    background: rgba(255, 255, 255, 0.2);
-}
 
 /* Container */
 .container {
     width: 90%;
-    max-width: 800px;
+    max-width: 700px;
     margin: 50px auto;
     padding: 20px;
     background: #6b4635;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     border: 1px solid black;
@@ -110,7 +57,7 @@ p {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    margin:10px;
+    margin: 5px;
     border: 1px solid black;
 }
 
@@ -151,48 +98,6 @@ input[type="submit"]:hover {
     background-color: #8e6346f1;
 }
 
-/* Tabela */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #ffedd8;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-    border: 1px , solid , black;
-   
-}
-
-th {
-    background: #70503a;
-    color: white;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Links de edição e exclusão */
-.link-alteracao {
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.link-alteracao:hover {
-    color: grey;
-}
-
-/* Mensagens de erro */
-
-/*java script*/
 
 /* Notificação */
 .erro-input {
