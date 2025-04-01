@@ -9,11 +9,11 @@
    
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $nome = $_POST['nome'];
-    $valor = $_POST['valor'];
+    $valor = $_POST['codigo'];
     $estoque = $_POST['estoque'];
-    $codigo = $_POST['codigo'] ;
+    $codigo = $_POST['preco'] ;
 
-    if (!$id || !$nome || !$valor || !$estoque || !$codigo) {
+    if (!$id || !$nome || !$codigo || !$estoque || !$preco) {
         echo "<script>
                 alert('Todos os campos são obrigatórios.');
                 window.location.href = 'produtos.php';
@@ -26,14 +26,14 @@
     try {
         $statement = $db->prepare("
             UPDATE produtos 
-            SET nome = :nome, valor = :valor, estoque = :estoque, codigo = :codigo
+            SET nome = :nome, valor = :valor, codigo = :codigo, estoque = :estoque, 
             WHERE id = :id
         ");
 
         $statement->bindParam(':nome', $nome);
-        $statement->bindParam(':valor', $valor);
-        $statement->bindParam(':estoque', $estoque);
         $statement->bindParam(':codigo', $codigo);
+        $statement->bindParam(':estoque', $estoque);
+        $statement->bindParam(':preco', $preco);
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
         $statement->execute();

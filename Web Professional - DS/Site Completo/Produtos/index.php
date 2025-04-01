@@ -18,10 +18,16 @@
             <img src="./assets/img/logo-arrumada.png" alt="Logotipo Mavi Pets">
         </div>
         <ul class="oi">
-            <li><a href="#" class="meumenu meumenu-active" title="Home">Home</a></li>
+            <li><a href="" class="meumenu meumenu-active" title="Home">Home</a></li>
             <li><a href="./Clientes/clientes.php" class="meumenu" title="Clientes">Clientes</a></li>
             <li><a href="produtos.php" class="meumenu" title="Produtos">Produtos</a></li>
-            <li><a href="vendas.php" class="meumenu" title="Vendas">Vendas</a></li>
+            <li><a href="./Vendas/vendas.php" class="meumenu" title="Vendas">Vendas</a></li>
+            <form action="./Vendas/exibirVendas.php">
+                <button type="submit" style="display: flex; align-items: center; gap: 5px; padding: 10px; color:white;">
+                    <i class="fas fa-shopping-cart"></i>
+
+                </button>
+            </form>
         </ul>
     </div>
     <div class="containeroi">
@@ -32,69 +38,6 @@
    
     </div>
 
-    <!--<div class="carousel-container">
-    <div class="carousel">
-        <div class="carousel-item">
-            <img src="assets/img/emage1.jpg" alt="Imagem 1">
-            <p>Imagem 1</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/emage2.jpg" alt="Imagem 2">
-            <p>Imagem 2</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/emagi.jpg" alt="Imagem 3">
-            <p>Imagem 3</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/camapersonalizada.jpg" alt="Imagem 4">
-            <p>Imagem 4</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/coleiracachorro.jpg" alt="Imagem 5">
-            <p>Imagem 5</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/gatobrinquedo.jpg" alt="Imagem 6">
-            <p>Imagem 6</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/gatocoleira.jpg" alt="Imagem 7">
-            <p>Imagem 7</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/kitgato.jpg" alt="Imagem 8">
-            <p>Imagem 8</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/limpaouvido.jpg" alt="Imagem 9">
-            <p>Imagem 9</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/racaodog.jpg" alt="Imagem 10">
-            <p>Imagem 10</p>
-        </div>
-        <div class="carousel-item">
-            <img src="assets/img/racaogato.jpg" alt="Imagem 11">
-            <p>Imagem 11</p>
-        </div>
-    </div>
-    
-     Indicadores de navegação (pontos) 
-    <div class="indicators">
-        <span class="indicator" onclick="moveSlide(0)"></span>
-        <span class="indicator" onclick="moveSlide(1)"></span>
-        <span class="indicator" onclick="moveSlide(2)"></span>
-        <span class="indicator" onclick="moveSlide(3)"></span>
-        <span class="indicator" onclick="moveSlide(4)"></span>
-        <span class="indicator" onclick="moveSlide(5)"></span>
-        <span class="indicator" onclick="moveSlide(6)"></span>
-        <span class="indicator" onclick="moveSlide(7)"></span>
-        <span class="indicator" onclick="moveSlide(8)"></span>
-        <span class="indicator" onclick="moveSlide(9)"></span>
-        <span class="indicator" onclick="moveSlide(10)"></span>
-    </div>
-</div>-->
 
 
 </body>

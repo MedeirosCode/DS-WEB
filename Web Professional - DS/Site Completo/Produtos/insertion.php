@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 }
 
 $nome = $_POST['nome'];
-$valor = $_POST['valor'];
-$estoque = $_POST['estoque'];
 $codigo = $_POST['codigo'];
+$estoque = $_POST['estoque'];
+$preco = $_POST['preco'];
 
-if (!$nome || !$valor || !$estoque || !$codigo) {
+if (!$nome || !$codigo || !$estoque || !$preco) {
     echo "<script>
             alert('Todos os campos são obrigatórios.');
             window.location.href = 'produtos.php';
@@ -24,14 +24,14 @@ include "conexao.php";
 
 try {
     $statement = $db->prepare("
-        INSERT INTO produtos (nome, valor, estoque, codigo) 
-        VALUES (:nome, :valor, :estoque, :codigo)
+        INSERT INTO produtos (nome, codigo, estoque, preco) 
+        VALUES (:nome, :codigo, :estoque, :preco)
     ");
 
     $statement->bindParam(':nome', $nome);
-    $statement->bindParam(':valor', $valor);
-    $statement->bindParam(':estoque', $estoque);
     $statement->bindParam(':codigo', $codigo);
+    $statement->bindParam(':estoque', $estoque);
+    $statement->bindParam(':preco', $preco);
 
     $statement->execute();
 

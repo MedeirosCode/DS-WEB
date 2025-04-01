@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $cargo = $_POST['cargo'];
     $email = $_POST['email'];
-    $senha = $_POST['senha']; // Sem criptografia, conforme solicitado.
+    $senha = $_POST['senha']; 
 
     if (!empty($nome) && !empty($cargo) && !empty($email) && !empty($senha)) {
         try {

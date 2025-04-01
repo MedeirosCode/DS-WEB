@@ -19,7 +19,17 @@
             <li><a href="index.php" class="meumenu" title="Home">Home</a></li>
             <li><a href="./Clientes/clientes.php" class="meumenu" title="Clientes">Clientes</a></li>
             <li><a href="../produtos.php" class="meumenu meumenu-active" title="Produtos">Produtos</a></li>
-            <li><a href="vendas.php" class="meumenu" title="Vendas">Vendas</a></li>
+            <li><a href="../Vendas/vendaPost.php" class="meumenu" title="Vendas">Vendas</a></li>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+            <form action="./Vendas/exibirVendas.php">
+                <button type="submit" style="display: flex; align-items: center; gap: 5px; padding: 10px;">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </form>
+
+</form>
+
         </ul>
     </div>
     <div class="containerei">
@@ -32,18 +42,17 @@
                 <input type="text" name="nome" id="nome">
                 <p class="erro-input" id="erro-nome"></p>
 
-
-                <label for="valor"> Valor: </label>
-                <input type="text" name="valor" id="valor" >
-                <p class="erro-input" id="erro-valor"></p>
+                <label for="codigo"> Código: </label>
+                <input type="text" name="codigo" id="codigo">
+                <p class="erro-input" id="erro-codigo"></p>
                 
                 <label for="estoque"> Estoque: </label>
                 <input type="text" name="estoque" id="estoque">
                 <p class="erro-input" id="erro-estoque"></p>
 
-                <label for="codigo"> Código: </label>
-                <input type="text" name="codigo" id="codigo">
-                <p class="erro-input" id="erro-codigo"></p>
+                <label for="preco"> Preco: </label>
+                <input type="text" name="preco" id="preco" >
+                <p class="erro-input" id="erro-valor"></p>
 
                 <input type="submit">
                 
@@ -53,9 +62,9 @@
     <table id="produtos">
         <tr> 
             <th> Nome </th>
-            <th> Valor </th>
+            <th> Codigo </th>
             <th> Estoque </th>
-            <th> Código </th>
+            <th> Preco </th>
             <th> Editar </th>
             <th> Excluir </th>
 
@@ -85,17 +94,17 @@
         foreach($todos as $linha){
             $idCliente = $linha['id'];
             $nomeProduto = $linha['nome'];
-            $valorProduto = $linha['valor'];
-            $estoqueProduto = $linha['estoque'];
             $codigoProduto = $linha['codigo'];
+            $estoqueProduto = $linha['estoque'];
+            $precoProduto = $linha['preco'];
 
 
             echo "
                 <tr>
                     <td> $nomeProduto </td>
-                    <td> $valorProduto </td>
-                    <td> $estoqueProduto </td>
                     <td> $codigoProduto </td>
+                    <td> $estoqueProduto </td>
+                    <td> $precoProduto </td>
 
                     <td><a class='link-alteracao' href='update.php?id=$idCliente'><i class='fa-solid fa-pencil'></i></a></td>
                     <td><a class='link-alteracao' href='delete.php?id=$idCliente'><i class='fa-solid fa-trash'></i></a></td>

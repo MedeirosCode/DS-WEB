@@ -21,6 +21,11 @@
             <li><a href="./clientes.php" class="meumenu meumenu-active" title="Clientes">Clientes</a></li>
             <li><a href="../produtos.php" class="meumenu" title="Produtos">Produtos</a></li>
             <li><a href="../vendas.php" class="meumenu" title="Vendas">Vendas</a></li>
+            <form action="../Vendas/vendaPost.php">
+                <button type="submit" style="display: flex; align-items: center; gap: 5px; padding: 10px;">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+            </form>
         </ul>
     </div>
     <br><br><br>
@@ -99,3 +104,9 @@
 <script src="./assetsClientes/jscliente/scriptCliente.js"></script>
 <script src="https://kit.fontawesome.com/128c4fe943.js" crossorigin="anonymous"></script>
 </html>
+
+
+
+
+
+

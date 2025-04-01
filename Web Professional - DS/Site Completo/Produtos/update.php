@@ -42,9 +42,9 @@
 
             $idCliente = $dados['id'];
             $nome = $dados['nome'];
-            $valor = $dados['valor'];
-            $estoque = $dados['estoque'];
             $codigo = $dados['codigo'];
+            $estoque = $dados['estoque'];
+            $preco = $dados['preco'];
 
 
 

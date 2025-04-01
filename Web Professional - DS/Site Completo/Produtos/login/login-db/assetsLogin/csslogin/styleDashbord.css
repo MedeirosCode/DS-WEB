@@ -155,5 +155,25 @@ tr:hover {
     color:red;
 }
 
+button {
+    
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    
+    padding: 10px;
+    font-size: 24px;
+}
+
+button:first-of-type {
+    left: 10px;
+}
+
+button:last-of-type {
+    right: 10px;
+}
+
 /* Erro */
 
