@@ -1,0 +1,216 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #2c3e50;
+    padding: 20px;
+}
+
+/* Menu Superior */
+.menu {
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+ul.oi, ul.ei, ul.ia {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0;
+}
+
+ul.oi li, ul.ei li, ul.ia li {
+    display: inline-block;
+}
+
+.meumenu {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    font-weight: normal;
+}
+
+.meumenu:hover,
+.meumenu-active {
+    background-color: #2980b9;
+}
+
+/* Carrinho */
+.carrinho-form, .ei form {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ei form button,
+.carrinho-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.carrinho-btn:hover,
+.ei form button:hover {
+    background-color: #1e8449;
+}
+
+/* Home */
+.containeroi {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.containeroi h1 {
+    font-size: 32px;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.containeroi p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Produtos */
+.containerei {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.formulario {
+    margin-bottom: 30px;
+}
+
+.formulario h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.formulario label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.formulario input[type="submit"] {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario input[type="submit"]:hover {
+    background-color: #1f6394;
+}
+
+.erro-input {
+    color: red;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* Tabela de produtos */
+table#produtos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#produtos th, #produtos td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#produtos th {
+    background-color: #2980b9;
+    color: white;
+}
+
+#produtos tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Ícones de ação */
+.link-alteracao i {
+    color: #2980b9;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.link-alteracao i:hover {
+    color: #1f6394;
+}
+
+/* Página Alterar Cliente/Produto */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Correção do SweetAlert */
+.swal2-popup .swal2-confirm {
+    position: static !important;
+    margin: auto !important;
+    display: inline-block !important;
+}
