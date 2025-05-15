@@ -1,0 +1,215 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #2c3e50;
+    padding: 20px;
+}
+
+/* Menu Superior */
+.menu {
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center; /* Alterado para centralizar */
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    position: relative; /* Adicionado para posicionamento do carrinho */
+}
+
+
+ul.ei {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto; /* Centraliza a lista */
+    padding: 0;
+}
+
+ul.ei li {
+    display: inline-block;
+}
+
+.meumenu {
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.meumenu:hover,
+.meumenu-active {
+    background-color: #2980b9;
+}
+
+/* Botão carrinho */
+.ei form {
+    position: absolute; /* Posiciona o carrinho absolutamente */
+    right: 20px; /* Distância da direita */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para centralização vertical */
+}
+
+.ei form button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ei form button:hover {
+    background-color: #1e8449;
+}
+
+/* Container principal */
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Formulário */
+.formulario {
+    margin-bottom: 30px;
+}
+
+.formulario h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.formulario label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.formulario input[type="text"],
+.formulario textarea,
+.formulario input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.formulario textarea {
+    resize: vertical;
+}
+
+.formulario input[type="submit"] {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario input[type="submit"]:hover {
+    background-color: #1f6394;
+}
+
+.erro-input {
+    color: red;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* Tabela de clientes */
+table#clientes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+#clientes th, #clientes td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#clientes th {
+    background-color: #2980b9;
+    color: white;
+}
+
+#clientes tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Ícones de ação */
+.link-alteracao i {
+    color: #2980b9;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.link-alteracao i:hover {
+    color: #1f6394;
+}
+
+/* SweetAlert botão alinhado */
+.swal2-popup .swal2-confirm {
+    position: static !important;
+    margin: auto !important;
+    display: inline-block !important;
+}
+
+/* Estilo para formulário de edição de clientes */
+.formulario form input[type="text"] {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.formulario form input[type="text"]:focus {
+    border-color: #2980b9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.4);
+}
+
+/* Estilo específico para campo de observação em forma de input (em vez de textarea) */
+#observacao {
+    height: 80px;
+}
+
+/* Ajuste geral se não houver título */
+.formulario form {
+    margin-top: 20px;
+}
+
+.formulario label {
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    font-weight: bold;
+    letter-spacing: 1px;
+}

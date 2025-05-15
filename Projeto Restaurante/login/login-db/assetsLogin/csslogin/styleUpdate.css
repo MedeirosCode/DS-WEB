@@ -1,0 +1,116 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Corpo */
+body {
+    background-color: #cab29d;
+    color: #333;
+    text-align: center;
+}
+
+
+
+.logo img {
+    height: 45px;
+    width: 45px;
+    margin-left: 26px;
+    border-radius:10px;
+}
+
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #6b4635;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid black;
+}
+
+h1 {
+    font-size: 2em;
+    color: #604532;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* Formulário */
+.formulario {
+    padding: 20px;
+    background: #ffedd8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: 5px;
+    border: 1px solid black;
+}
+
+
+form {
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #70503a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #8e6346f1;
+}
+
+
+/* Notificação */
+.erro-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+    color:red;
+}
+
+/* Erro */
+
+

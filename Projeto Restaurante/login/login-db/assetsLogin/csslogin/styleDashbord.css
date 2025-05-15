@@ -1,0 +1,179 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Corpo */
+body {
+    background-color: #cab29d;
+    color: #333;
+    text-align: center;
+}
+
+
+.logo img {
+    height: 45px;
+    width: 45px;
+    margin-left: 26px;
+    border-radius:10px;
+}
+
+/* Container */
+.containerei {
+    width: 90%;
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 5px;
+    background: #6b4635;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid black;
+}
+
+
+
+
+h1 {
+    font-size: 2em;
+    color: #604532;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+/* Formulário */
+.formulario {
+    padding: 10px;
+    background: #ffedd8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin:10px;
+    border: 5px solid #6b4635;
+}
+
+
+form {
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #70503a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+input[type="submit"]:hover {
+    background-color: #8e6346f1;
+}
+
+/* Tabela */
+table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffedd8;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    border: 1px , solid , black;
+   
+}
+
+th {
+    background: #70503a;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Links de edição e exclusão */
+.link-alteracao {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.link-alteracao:hover {
+    color: grey;
+}
+
+/* Mensagens de erro */
+
+/*java script*/
+
+/* Notificação */
+.erro-input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+    color:red;
+}
+
+button {
+    
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    
+    padding: 10px;
+    font-size: 24px;
+}
+
+button:first-of-type {
+    left: 10px;
+}
+
+button:last-of-type {
+    right: 10px;
+}
+
+/* Erro */
+
