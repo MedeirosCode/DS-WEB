@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $stmt = $pdo->prepare("INSERT INTO clientes (nome) VALUES (?)");
     $stmt->execute([$nome]);
-    header("Location: index.php");
+    header("Location: principal.php");
 }
 ?>
 <link rel="stylesheet" href="style.css">

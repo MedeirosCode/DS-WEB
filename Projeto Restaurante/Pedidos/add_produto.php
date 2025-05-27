@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $preco = $_POST['preco'];
     $stmt = $pdo->prepare("INSERT INTO produtos (nome, preco) VALUES (?, ?)");
     $stmt->execute([$nome, $preco]);
-    header("Location: index.php");
+    header("Location: principal.php");
 }
 ?>
 <link rel="stylesheet" href="style.css">
