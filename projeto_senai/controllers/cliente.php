@@ -1,70 +1,105 @@
-<?php 
-$subRota = $caminho[1] ?? null;
+<?php
+
+$subRota = $caminho[1] ?? '';
+
+require_once './models/cliente.php';
+$clienteModel = new Cliente();
 
 switch ($subRota) {
     case '':
-        require './models/clientes.php';
-        $cliente = new Cliente;
-        $dados = $cliente->queryAll();
-        require './views/clientes/consultaCliente.php'; // Corrigido: para listar os clientes
+        $busca = trim($_GET['busca'] ?? '');
+
+        $dados = $clienteModel->buscarComTermo($busca);
+
+        // Verifica se houve uma busca
+        if ($busca !== '') {
+            if (empty($dados)) {
+                $_SESSION['toast'] = [
+                    'type' => 'error',
+                    'title' => 'Nenhum resultado encontrado',
+                    'message' => 'Nenhum usuário encontrado com esse termo.'
+                ];
+            } else {
+                $_SESSION['toast'] = [
+                    'type' => 'success',
+                    'title' => 'Sucesso',
+                    'message' => 'Resultados encontrados!'
+                ];
+            }
+        }
+
+        require './views/clientes/consultaClientes.php';
         break;
 
     case 'cadastro':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nomeCliente = $_POST['nomeCliente'] ?? '';
-            $emailCliente = $_POST['emailCliente'] ?? '';
-            $senhaCliente = $_POST['senhaCliente'] ?? '';
-            $altura = $_POST['altura'] ?? '';
-            $sexo = $_POST['sexo'] ?? '';
-            $data = $_POST['data'] ?? '';
-            $localizacao = $_POST['localizacao'] ?? '';
-            $caracteristicas = $_POST['caracteristicas'] ?? '';
-            $raca = $_POST['raca'] ?? '';
+            $campos = [
+                ':nomeCliente' => $_POST['nomeCliente'],
+                ':emailCliente' => $_POST['emailCliente'],
+                ':altura' => $_POST['altura'],
+                ':sexo' => $_POST['sexo'],
+                ':dataNascimento' => $_POST['dataNascimento'],
+                ':localizacao' => $_POST['localizacao'],
+                ':caracteristicas' => $_POST['caracteristicas'],
+                ':raca' => $_POST['raca'],
+                ':idadeAproximada' => $_POST['idadeAproximada'],
+                ':dataDesaparecimento' => $_POST['dataDesaparecimento'],
+                ':cidade' => $_POST['cidade'],
+                ':estado' => $_POST['estado'],
+                ':pais' => $_POST['pais'],
+                ':ultimaRoupaVista' => $_POST['ultimaRoupaVista'],
+                ':nomeResponsavel' => $_POST['nomeResponsavel'],
+                ':telefoneResponsavel' => $_POST['telefoneResponsavel'],
+                ':parentescoResponsavel' => $_POST['parentescoResponsavel'],
+                ':observacao' => $_POST['observacao']
+            ];
 
-            require './models/clientes.php';
-            $cliente = new Cliente;
-            $cliente->insert([
-                ":nomeCliente" => $nomeCliente,
-                ":emailCliente" => $emailCliente,
-                ":senhaCliente" => $senhaCliente,
-                ":altura" => $altura,
-                ":sexo" => $sexo,
-                ":data" => $data,
-                ":localizacao" => $localizacao,
-                ":caracteristicas" => $caracteristicas,
-                ":raca" => $raca
-            ]);
-
-            header('Location: /projeto_senai/controllers/cliente');
-            exit;
-        }
-
-        require './views/clientes/cadastroCliente.php';
-        break;
-
-    case 'excluir':
-        if (isset($caminho[2])) {
-            $idCliente = $caminho[2];
-
-            require './models/cliente.php';
-            $cliente = new Cliente;
-            $cliente->deleteCliente([":idCliente" => $idCliente]);
-
-            header('Location: /projeto_senai/controller/cliente');
+            $resultado = $clienteModel->insert($campos);
+            $_SESSION['toast'] = [
+                'type' => $resultado ? 'success' : 'error',
+                'title' => $resultado ? 'Sucesso!' : 'Erro!',
+                'message' => $resultado ? 'Cliente cadastrado com sucesso!' : 'Falha ao cadastrar cliente.'
+            ];
+            header('Location: /projeto_senai/cliente');
             exit;
         } else {
-            echo "ID do cliente não informado.";
+            require './views/clientes/cadastroClientes.php';
+        }
+        break;
+
+    case 'detalhes':
+        $id = $caminho[2] ?? null;
+        if ($id) {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['relato'])) {
+                $relato = trim($_POST['relato']);
+                if (!empty($relato)) {
+                    $clienteModel->salvarRelato($id, $relato);
+                    $_SESSION['toast'] = ['type' => 'success', 'title' => 'Sucesso', 'message' => 'Relato salvo com sucesso!'];
+                } else {
+                    $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro', 'message' => 'O campo de relato não pode estar vazio.'];
+                }
+
+                header("Location: /projeto_senai/cliente/detalhes/$id");
+                exit;
+            }
+
+            $cliente = $clienteModel->buscarPorId($id);
+            if ($cliente) {
+                require './views/clientes/detalhesCliente.php';
+            } else {
+                $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro!', 'message' => 'Cliente não encontrado.'];
+                header('Location: /projeto_senai/cliente');
+                exit;
+            }
+        } else {
+            $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro!', 'message' => 'ID inválido.'];
+            header('Location: /projeto_senai/cliente');
+            exit;
         }
         break;
 
     default:
-        if (preg_match('/^cliente\/([0-9]+)$/', $url, $matches)) {
-            $id = $matches[1];
-
-            require './models/cliente.php';
-            $cliente = new Cliente;
-            $dados = $cliente->queryOne([":idCliente" => $id]);
-            require './views/clientes/consultaCliente.php';
-        }
-        break;
+        $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro!', 'message' => 'Subrota cliente inválida.'];
+        header('Location: /projeto_senai/cliente');
+        exit;
 }

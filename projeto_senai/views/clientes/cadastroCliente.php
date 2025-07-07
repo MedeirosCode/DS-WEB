@@ -1,82 +1,214 @@
+<?php if(!defined('CADASTRO_RENDERIZADO')) { define('CADASTRO_RENDERIZADO', true); ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro de Clientes</title>
-    <style>
-        .swal2-popup .swal2-confirm {
-            position: static !important;
-            margin: auto !important;
-            display: inline-block !important;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Desaparecidos</title>
+  <style>
+    :root {
+      --verde-escuro: #2e7d32;
+      --verde-medio: #43a047;
+      --verde-claro: #c8e6c9;
+      --verde-fundo: #e8f5e9;
+      --cinza-claro: #f1f1f1;
+      --sombra: rgba(0, 0, 0, 0.05);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--verde-fundo);
+    }
+
+    .titulo-cadastro {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--verde-escuro);
+      margin-top: 30px;
+    }
+
+    .form-wrapper {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px var(--sombra);
+    }
+
+    .formulario-cadastro {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .campo-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .campo-form label {
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: var(--verde-medio);
+    }
+
+    .campo-form input,
+    .campo-form select {
+      padding: 10px 12px;
+      border: 2px solid var(--verde-claro);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .campo-form input:focus,
+    .campo-form select:focus {
+      border-color: var(--verde-medio);
+      outline: none;
+    }
+
+    .btn-enviar {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: var(--verde-medio);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-enviar:hover {
+      background-color: var(--verde-escuro);
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 600px) {
+      .form-wrapper {
+        padding: 20px;
+        margin: 20px;
+      }
+
+      .titulo-cadastro {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Cadastro de Clientes</h1>
-    <form action="controllers\clientes.php" method="POST" name="formulario" onsubmit="return validarDadosCliente()">
-        <label>Nome do Cliente:</label>
-        <input type="text" name="nomeCliente" required><br>
 
-        <label>Email do Cliente:</label>
-        <input type="text" name="emailCliente" required><br>
+<h1 class="titulo-cadastro">Cadastro de Desaparecidos</h1>
 
-        <label>Senha do Cliente:</label>
-        <input type="password" name="senhaCliente" required><br>
+<div class="form-wrapper">
+  <form action="/projeto_senai/cliente/cadastro" method="POST" enctype="multipart/form-data" class="formulario-cadastro">
 
-        <label>Altura do Cliente:</label>
-        <input type="text" name="altura"><br>
+    <div class="campo-form">
+      <label>Nome do Cliente:</label>
+      <input type="text" name="nomeCliente" required>
+    </div>
 
-        <label>Sexo do Cliente:</label>
-        <select name="sexo">
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outro">Outro</option>
-        </select><br>
+    <div class="campo-form">
+      <label>Foto do Desaparecido:</label>
+      <input type="file" name="fotoCliente" accept="image/*">
+    </div>
 
-        <label>Data de Desaparecimento:</label>
-        <input type="date" name="data"><br>
+    <div class="campo-form">
+      <label>Email do Responsável:</label>
+      <input type="email" name="emailCliente" required>
+    </div>
 
-        <label>Local de Desaparecimento:</label>
-        <input type="text" name="localizacao"><br>
+    <div class="campo-form">
+      <label>Altura (em metros):</label>
+      <input type="text" name="altura">
+    </div>
 
-        <label>Característica do Cliente:</label>
-        <input type="text" name="caracteristicas"><br>
+    <div class="campo-form">
+      <label>Sexo:</label>
+      <select name="sexo">
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </div>
 
-        <label>Raça do Cliente:</label>
-        <input type="text" name="raca"><br>
+    <div class="campo-form">
+      <label>Data de Nascimento:</label>
+      <input type="date" name="dataNascimento">
+    </div>
 
-        <input value="Enviar" type="submit">
-    </form>
+    <div class="campo-form">
+      <label>Localização do Desaparecimento:</label>
+      <input type="text" name="localizacao">
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-    function validarDadosCliente() {
-        const formulario = document.forms["formulario"];
-        const nomeCliente = formulario.nomeCliente.value.trim();
-        const emailCliente = formulario.emailCliente.value.trim();
-        const senhaCliente = formulario.senhaCliente.value.trim();
-        let mensagemErro = "";
+    <div class="campo-form">
+      <label>Características:</label>
+      <input type="text" name="caracteristicas">
+    </div>
 
-        if (nomeCliente.length < 3) {
-            mensagemErro = "Verifique se o nome do cliente possui mais do que 3 caracteres.";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailCliente)) {
-            mensagemErro = "Preencha o campo email corretamente! O email deve conter '.' e '@'.";
-        } else if (senhaCliente.length < 4) {
-            mensagemErro = "A senha deve conter pelo menos 4 caracteres.";
-        }
+    <div class="campo-form">
+      <label>Raça:</label>
+      <input type="text" name="raca">
+    </div>
 
-        if (mensagemErro !== "") {
-            Swal.fire({
-                icon: "error",
-                title: "Erro na validação",
-                text: mensagemErro,
-                confirmButtonColor: "#ff5722"
-            });
-            return false;
-        }
+    <div class="campo-form">
+      <label>Idade Aproximada:</label>
+      <input type="text" name="idadeAproximada">
+    </div>
 
-        return true;
-    }
-    </script>
+    <div class="campo-form">
+      <label>Data do Desaparecimento:</label>
+      <input type="datetime-local" name="dataDesaparecimento">
+    </div>
+
+    <div class="campo-form">
+      <label>Cidade:</label>
+      <input type="text" name="cidade">
+    </div>
+
+    <div class="campo-form">
+      <label>Estado:</label>
+      <input type="text" name="estado">
+    </div>
+
+    <div class="campo-form">
+      <label>País:</label>
+      <input type="text" name="pais">
+    </div>
+
+    <div class="campo-form">
+      <label>Última Roupa Vista:</label>
+      <input type="text" name="ultimaRoupaVista">
+    </div>
+
+    <div class="campo-form">
+      <label>Nome do Responsável:</label>
+      <input type="text" name="nomeResponsavel">
+    </div>
+
+    <div class="campo-form">
+      <label>Telefone do Responsável:</label>
+      <input type="text" name="telefoneResponsavel">
+    </div>
+
+    <div class="campo-form">
+      <label>Parentesco do Responsável:</label>
+      <input type="text" name="parentescoResponsavel">
+    </div>
+
+    <div class="campo-form">
+      <label>Observações:</label>
+      <input type="text" name="observacao">
+    </div>
+
+    <input type="submit" value="Enviar" class="btn-enviar">
+  </form>
+</div>
+
 </body>
 </html>
+<?php } ?>

@@ -2,59 +2,62 @@
 
 class Database extends PDO
 {
-  // configuração do banco de dados
-  private $DB_NAME = 'mvc_db';
-  private $DB_USER = 'root';
-  private $DB_PASSWORD = '';
-  private $DB_HOST = '127.0.0.1';
-  private $DB_PORT = 3306;
+    private $DB_NAME = 'mvc_db';
+    private $DB_USER = 'root';
+    private $DB_PASSWORD = '';
+    private $DB_HOST = '127.0.0.1';
+    private $DB_PORT = 3306;
 
-  // armazena a conexão
-  private $conn;
-
-  public function __construct()
-  {
-    $this->conn = new PDO("mysql:host=$this->DB_HOST;dbname=$this->DB_NAME", $this->DB_USER, $this->DB_PASSWORD);
-  }
-
-  private function setParameters($stmt, $key, $value)
-  {
-    $stmt->bindParam($key, $value);
-  }
-
-  private function mountQuery($stmt, $parameters)
-  {
-    foreach( $parameters as $key => $value ) {
-      $this->setParameters($stmt, $key, $value);
+    public function __construct()
+    {
+        parent::__construct(
+            "mysql:host={$this->DB_HOST};dbname={$this->DB_NAME};port={$this->DB_PORT}",
+            $this->DB_USER,
+            $this->DB_PASSWORD,
+            [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]
+        );
     }
-  }
 
-  public function executeQuery(string $query, array $parameters = [])
-  {
-    $stmt = $this->conn->prepare($query);
-    $this->mountQuery($stmt, $parameters);
-    $stmt->execute();
-    return $stmt;
-  }
+    private function setParameters($stmt, $key, $value)
+    {
+        $stmt->bindValue($key, $value);
+    }
 
-  public function executeNonQuery($sql, $params = []) {
-    $stmt = $this->conn->prepare($sql);
-    return $stmt->execute($params);
-}
-   
-  public function executeDelete($sql, $params = []) {
-    $stmt = $this->conn->prepare($sql);
-    return $stmt->execute($params);
-}
- 
-//clientes
-  public function executeCliente($sql, $params = []) {
-    $stmt = $this->conn->prepare($sql);
-    return $stmt->execute($params);
-}
+    private function mountQuery($stmt, $parameters)
+    {
+        foreach ($parameters as $key => $value) {
+            $this->setParameters($stmt, $key, $value);
+        }
+    }
 
-  public function deleteCliente($sql, $params = []) {
-    $stmt = $this->conn->prepare($sql);
-    return $stmt->execute($params);
-}
+    public function executeQuery(string $query, array $parameters = [])
+    {
+        $stmt = $this->prepare($query);
+        $this->mountQuery($stmt, $parameters);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function executeNonQuery($sql, $params = []) {
+        $stmt = $this->prepare($sql);
+        return $stmt->execute($params);
+    }
+
+    public function fetchAllAssoc(string $query, array $params = []) {
+        $stmt = $this->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetchAll();
+    }
+
+    public function lastInsertId(?string $name = null): string|false
+    {
+        return parent::lastInsertId($name);
+    }
+
+    public function getConnection() {
+        return $this;
+    }
 }

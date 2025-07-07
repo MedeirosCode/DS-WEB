@@ -42,6 +42,19 @@
                 <td><?= $dado['localizacao'] ?></td>
                 <td><?= $dado['caracteristicas'] ?></td>
                 <td><?= $dado['raca'] ?></td>
+
+                <td><?= $dado['dataNascimento'] ?></td>
+                <td><?= $dado['idadeAproximada'] ?></td>
+                <td><?= $dado['dataDesaparecimento'] ?></td>
+                <td><?= $dado['cidade'] ?></td>
+                <td><?= $dado['estado'] ?></td>
+                <td><?= $dado['pais'] ?></td>
+                <td><?= $dado['ultimaRoupaVista'] ?></td>
+                <td><?= $dado['nomeResponsavel'] ?></td>
+                <td><?= $dado['telefoneResponsavel'] ?></td>
+                <td><?= $dado['parentescoResponsavel'] ?></td>
+                <td><?= $dado['observacao'] ?></td>
+                
                 <td><a href="cliente/<?= $dado['idCliente'] ?>"><button>Acessar</button></a></td>
                 <td><a href="cliente/excluir/<?= $dado['idCliente'] ?>"><button>Excluir</button></a></td>
             </tr>

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="/projeto_senai/assets/css/style.css">
-  <link rel="icon" href="../projeto_senai/photos/imagemdosite.png">
+
+  <link rel="icon" href="/projeto_senai/photos/imagemdosite.png">
   <title>Desaparecidos Brasil - Perfil</title>
   <style>
     * {
@@ -14,24 +14,30 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e8f5e9; /* fundo leve verde */
+      color: #2e7d32; /* texto verde escuro */
     }
 
-    /* Botão de menu */
     #btn-toggle {
       position: fixed;
       top: 15px;
       left: 15px;
       z-index: 1001;
-      background-color: #fff;
-      color: #333;
-      border: 1px solid #ccc;
+      background-color: #4caf50; /* verde vivo */
+      color: white;
+      border: none;
       font-size: 24px;
       padding: 8px 12px;
       cursor: pointer;
       border-radius: 6px;
+      box-shadow: 0 2px 6px rgb(76 175 80 / 0.5);
+      transition: background-color 0.3s ease;
     }
 
-    /* Sidebar */
+    #btn-toggle:hover {
+      background-color: #388e3c; /* verde mais escuro no hover */
+    }
+
     .sidebar-perfil {
       position: fixed;
       top: 0;
@@ -39,9 +45,9 @@
       width: 260px;
       height: 100vh;
       background-color: #ffffff;
-      color: #333;
+      color: #2e7d32; /* verde escuro */
       padding: 20px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 2px 0 10px rgb(46 125 50 / 0.15);
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       z-index: 1000;
@@ -58,7 +64,8 @@
       margin-top: 60px;
       margin-bottom: 30px;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 700;
+      color: #2e7d32;
     }
 
     .sidebar-perfil ul {
@@ -79,31 +86,66 @@
       padding: 12px 16px;
       border-radius: 8px;
       text-decoration: none;
-      color: #333;
+      color: #2e7d32;
       transition: background 0.2s, color 0.2s;
       font-size: 15px;
+      font-weight: 600;
     }
 
     .sidebar-perfil a:hover {
-      background-color: #f0f0f0;
+      background-color: #c8e6c9; /* verde claro */
+      color: #1b5e20; /* verde escuro para contraste */
     }
 
     .sidebar-perfil a.active {
-      background-color: #e0e7ff;
-      color: #1e40af;
-      font-weight: bold;
+      background-color: #81c784; /* verde médio */
+      color: #1b5e20;
+      font-weight: 700;
+      box-shadow: inset 3px 0 0 0 #388e3c;
     }
 
     .sidebar-footer {
       text-align: center;
       padding: 20px 0;
       font-size: 14px;
-      color: #aaa;
+      color: #4caf50;
+      font-weight: 600;
     }
 
     .main-content {
       padding: 20px;
       transition: margin-left 0.3s ease;
+      min-height: 100vh;
+      background: #f1f8f1;
+    }
+
+    /* Menu topo centralizado */
+    ul.menu-topo {
+      display: flex;
+      justify-content: center;  /* centraliza os itens */
+      gap: 15px;
+      list-style: none;
+      padding: 10px;
+      background: #d0f0d0; /* verde claro */
+      margin: 0;
+    }
+
+    ul.menu-topo > li > a {
+      color: #2e7d32; /* verde escuro */
+      font-weight: 600;
+      text-decoration: none;
+      padding-bottom: 4px;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    ul.menu-topo > li > a:hover {
+      color: #4caf50; /* verde mais vivo */
+    }
+
+    ul.menu-topo > li > a.active {
+      color: #1b5e20; /* verde mais escuro */
+      border-bottom: 3px solid #4caf50;
+      font-weight: 700;
     }
 
     .main-content.shifted {
@@ -116,47 +158,49 @@
       }
     }
   </style>
-  
 </head>
 <body>
-    <div>
-        <ul>
-            <li><a href="/projeto_senai/home" class="<?= ($_GET['url'] == 'home') ? 'active' : '' ?>">Home</a></li>
-            <li><a href="/projeto_senai/cliente" class="<?= ($_GET['url'] == 'cliente') ? 'active' : '' ?>">Clientes</a></li>
-            <li class="link-usuario"><a href="/projeto_senai/desaparecido" class="<?= ($_GET['url'] == 'desaparecido') ? 'active' : '' ?>">Desaparecidos</a></li>
-        </ul>
-    </div>
+
+  <!-- Menu topo (exemplo) -->
+  <div>
+    <ul class="menu-topo">
+      <li><a href="/projeto_senai/home" class="<?= ($_GET['url'] ?? '') === 'home' ? 'active' : '' ?>">Home</a></li>
+      <li><a href="/projeto_senai/cliente" class="<?= ($_GET['url'] ?? '') === 'cliente' ? 'active' : '' ?>">Desaparecidos</a></li>
+      <li><a href="/projeto_senai/videos" class="<?= ($_GET['url'] ?? '') === 'videos' ? 'active' : '' ?>">Vídeos</a></li>
+    </ul>
+  </div>
+
   <!-- Botão -->
-  <button id="btn-toggle">☰</button>
+  <button id="btn-toggle" aria-label="Abrir menu lateral">☰</button>
 
   <!-- Menu lateral -->
-  <div class="sidebar-perfil" id="sidebar-perfil">
+  <nav class="sidebar-perfil" id="sidebar-perfil" aria-label="Menu do perfil">
     <div>
       <h2>Meu Perfil</h2>
       <ul>
-        <li><a href="/projeto_senai/perfil" class="<?= (isset($_GET['url']) && $_GET['url'] == 'perfil') ? 'active' : '' ?>">Editar Perfil</a></li>
-        <li><a href="/projeto_senai/privacidade" class="<?= (isset($_GET['url']) && $_GET['url'] == 'privacidade') ? 'active' : '' ?>">Termos de Privacidade</a></li>
-        <li><a href="/projeto_senai/desaparecido" class="<?= (isset($_GET['url']) && $_GET['url'] == 'desaparecido') ? 'active' : '' ?>">Adicionar Desaparecido</a></li>
-        <li><a href="/projeto_senai/configuracoes" class="<?= (isset($_GET['url']) && $_GET['url'] == 'configuracoes') ? 'active' : '' ?>">Configurações</a></li>
-        <li><a href="/projeto_senai/suporte" class="<?= (isset($_GET['url']) && $_GET['url'] == 'suporte') ? 'active' : '' ?>">Suporte</a></li>
-        <li><a href="/projeto_senai/ajuda" class="<?= (isset($_GET['url']) && $_GET['url'] == 'ajuda') ? 'active' : '' ?>">Ajuda</a></li>
-        <li><a href="/projeto_senai/feedback" class="<?= (isset($_GET['url']) && $_GET['url'] == 'feedback') ? 'active' : '' ?>">Deixar Feedback</a></li>
+        <li><a href="/projeto_senai/desaparecido" class="<?= ($_GET['url'] ?? '') === 'desaparecidos' ? 'active' : '' ?>">Cadastrar Desaparecidos</a></li>
+        <li><a href="/projeto_senai/termos" class="<?= ($_GET['url'] ?? '') === 'termos' ? 'active' : '' ?>">Termos de Privacidade</a></li>
+        <li><a href="/projeto_senai/configuracoes" class="<?= ($_GET['url'] ?? '') === 'configuracoes' ? 'active' : '' ?>">Configurações</a></li>
+        <li><a href="/projeto_senai/suporte" class="<?= ($_GET['url'] ?? '') === 'suporte' ? 'active' : '' ?>">Suporte</a></li>
+        <li><a href="/projeto_senai/ajuda" class="<?= ($_GET['url'] ?? '') === 'ajuda' ? 'active' : '' ?>">Ajuda</a></li>
+        <li><a href="/projeto_senai/feedback" class="<?= ($_GET['url'] ?? '') === 'feedback' ? 'active' : '' ?>">Deixar Feedback</a></li>
+        <li><a href="/projeto_senai/nos" class="<?= ($_GET['url'] ?? '') === 'nos' ? 'active' : '' ?>">Quem somos nós</a></li>
       </ul>
     </div>
     <div class="sidebar-footer">
       &copy; <?= date('Y') ?> ReAbraço Brasil
     </div>
-  </div>
+  </nav>
 
-  <!-- Conteúdo -->
-  <div class="main-content" id="main-content">
+  <!-- Conteúdo principal -->
+  <main class="main-content" id="main-content">
     <div class="container">
       <?php
         $url = $_GET['url'] ?? '/';
-        require 'rotas.php';
+        require_once 'rotas.php';
       ?>
     </div>
-  </div>
+  </main>
 
   <!-- Script -->
   <script>
