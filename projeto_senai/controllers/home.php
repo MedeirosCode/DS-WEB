@@ -197,27 +197,27 @@
             <div class="card" tabindex="0" role="button">
                 <img src="/projeto_senai/photos/reencontro01.jpg" alt="Foto de Maria Silva">
                 <div class="card-content">
-                    <h3>Maria Silva</h3>
-                    <p>Desaparecida desde 10/06/2025<br>Rio de Janeiro - RJ</p>
-                    <a href="#">Ver detalhes</a>
+                    <h3>Ana Clara</h3>
+                    <p>Desaparecida desde 10/06/2025<br>Belo Horizonte - MG</p>
+                    <a href="views/historias/historia1.php">Ver detalhes</a>
                 </div>
             </div>
 
             <div class="card" tabindex="0" role="button">
                 <img src="/projeto_senai/photos/reencontro02.jpg" alt="Foto de João Oliveira">
                 <div class="card-content">
-                    <h3>João Oliveira</h3>
+                    <h3>João Pedro</h3>
                     <p>Desaparecido desde 15/06/2025<br>São Paulo - SP</p>
-                    <a href="#">Ver detalhes</a>
+                    <a href="views/historias/historia2.php">Ver detalhes</a>
                 </div>
             </div>
 
             <div class="card" tabindex="0" role="button">
                 <img src="/projeto_senai/photos/reencontro03.jpg" alt="Foto de Larissa Costa">
                 <div class="card-content">
-                    <h3>Larissa Costa</h3>
-                    <p>Desaparecida desde 02/07/2025<br>Belo Horizonte - MG</p>
-                    <a href="#">Ver detalhes</a>
+                    <h3>Maria Aparecida</h3>
+                    <p>Desaparecida desde 02/07/2025<br>Recife - PE</p>
+                    <a href="views/historias/historia3.php">Ver detalhes</a>
                 </div>
             </div>
         </div>

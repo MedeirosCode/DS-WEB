@@ -23,7 +23,13 @@ class Database extends PDO
 
     private function setParameters($stmt, $key, $value)
     {
-        $stmt->bindValue($key, $value);
+        if (is_int($key)) {
+            // Para placeholders posicionais ? bindValue começa em 1
+            $stmt->bindValue($key + 1, $value);
+        } else {
+            // Para placeholders nomeados
+            $stmt->bindValue($key, $value);
+        }
     }
 
     private function mountQuery($stmt, $parameters)
@@ -41,12 +47,14 @@ class Database extends PDO
         return $stmt;
     }
 
-    public function executeNonQuery($sql, $params = []) {
+    public function executeNonQuery($sql, $params = [])
+    {
         $stmt = $this->prepare($sql);
         return $stmt->execute($params);
     }
 
-    public function fetchAllAssoc(string $query, array $params = []) {
+    public function fetchAllAssoc(string $query, array $params = [])
+    {
         $stmt = $this->prepare($query);
         $stmt->execute($params);
         return $stmt->fetchAll();
@@ -57,7 +65,8 @@ class Database extends PDO
         return parent::lastInsertId($name);
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this;
     }
 }

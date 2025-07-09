@@ -8,8 +8,11 @@
     :root {
       --verde-escuro: #2e7d32;
       --verde-medio: #43a047;
-      --bg: #f0fdf4;
-      --text-dark: #333;
+      --bg-claro: #f0fdf4;
+      --bg-escuro: #1e1e1e;
+      --caixa-clara: white;
+      --caixa-escura: #2b2b2b;
+      --texto-escuro: #f1f1f1;
     }
 
     * {
@@ -20,9 +23,14 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      padding: 20px;
-      color: var(--text-dark);
+      background-color: var(--bg-claro);
+      color: var(--verde-escuro);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-escuro);
+      color: var(--texto-escuro);
     }
 
     h1 {
@@ -31,13 +39,23 @@
       margin-bottom: 30px;
     }
 
+    body.dark-mode h1 {
+      color: #a5d6a7;
+    }
+
     .faq-container {
       max-width: 800px;
       margin: 0 auto;
-      background: white;
+      background: var(--caixa-clara);
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       padding: 30px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode .faq-container {
+      background: var(--caixa-escura);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
     .faq-item {
@@ -45,6 +63,10 @@
       border-bottom: 1px solid #e0e0e0;
       padding-bottom: 10px;
       cursor: pointer;
+    }
+
+    body.dark-mode .faq-item {
+      border-color: #555;
     }
 
     .faq-item h2 {
@@ -63,6 +85,7 @@
       line-height: 1.6;
       display: none;
       margin-top: 5px;
+      color: inherit;
     }
 
     .faq-item.active p {
@@ -129,7 +152,6 @@
   <h1>Ajuda & Perguntas Frequentes (FAQ)</h1>
 
   <div class="faq-container">
-
     <div class="faq-item">
       <h2>🧭 Como faço para buscar uma pessoa desaparecida?</h2>
       <p>Você pode usar a barra de busca na página inicial digitando o nome da pessoa, a cidade ou o estado onde ela desapareceu.</p>
@@ -164,24 +186,28 @@
       <h2>📨 Preciso de ajuda! Como falar com a equipe do site?</h2>
       <p>Você pode entrar em contato com nossa equipe pelo e-mail: <a href="mailto:ajuda@desaparecidos.com.br">ajuda@desaparecidos.com.br</a></p>
     </div>
-
   </div>
 
-  <a class="back-link" href="/projeto_senai/">← Voltar para a Página Inicial</a>
-
   <!-- Botão do WhatsApp -->
-  <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" class="whatsapp-button" title="Fale conosco no WhatsApp">
+  <a href="https://wa.me/5515991770288" target="_blank" class="whatsapp-button" title="Fale conosco no WhatsApp">
     💬
   </a>
 
   <script>
-    // Toggle FAQ respostas
+    // Toggle das respostas do FAQ
     document.querySelectorAll('.faq-item h2').forEach(item => {
       item.addEventListener('click', () => {
         const parent = item.parentElement;
         parent.classList.toggle('active');
       });
     });
+
+    // Ativa modo escuro se estiver salvo no localStorage
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    };
   </script>
 
 </body>

@@ -28,7 +28,6 @@ if (!isset($cliente)) {
         body {
             font-family: 'Segoe UI', sans-serif;
             background-color: var(--bg);
-            padding: 20px;
         }
 
         .cliente-container {
@@ -200,83 +199,69 @@ if (!isset($cliente)) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        .swal2-success.swal2-animate-success-icon {
-            animation: spin 0.7s ease-in-out forwards;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(360deg); }
-            100% { transform: rotate(720deg); }
-        }
-    </style>
     <script>
         const form = document.getElementById('formRelato');
         const textarea = document.getElementById('relato');
         const originalRelato = textarea.value.trim();
 
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
             const relato = textarea.value.trim();
 
             if (!relato) {
-                Swal.fire({
+                return Swal.fire({
                     icon: 'warning',
                     title: 'Campo vazio',
                     text: 'Por favor, escreva um relato antes de enviar.',
                     confirmButtonColor: '#2e7d32'
                 });
-                return;
             }
 
             if (relato === originalRelato) {
-                Swal.fire({
+                return Swal.fire({
                     icon: 'info',
                     title: 'Nenhuma alteração',
                     text: 'Você não alterou o conteúdo do relato.',
                     confirmButtonColor: '#2e7d32'
                 });
-                return;
             }
 
-            Swal.fire({
+            await Swal.fire({
                 title: 'Salvando...',
                 html: 'Seu relato está sendo enviado!',
-                timer: 2000,
+                timer: 1500,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading();
-                },
-                willClose: () => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Relato salvo!',
-                        text: 'Obrigado por contribuir com a causa.',
-                        background: '#e8f5e9',
-                        iconColor: '#2e7d32',
-                        showConfirmButton: false,
-                        timer: 2000,
-                        customClass: {
-                            icon: 'swal2-animate-success-icon'
-                        }
-                    });
-                    setTimeout(() => {
-                        form.submit();
-                    }, 2200);
                 }
             });
-        });
 
-        <?php if (isset($_SESSION['toast'])): ?>
-            Swal.fire({
-                icon: '<?= $_SESSION['toast']['type'] ?>',
-                title: '<?= $_SESSION['toast']['title'] ?>',
-                text: '<?= $_SESSION['toast']['message'] ?>',
-                background: '#f8f9fa',
-                iconColor: '<?= $_SESSION['toast']['type'] === 'success' ? '#28a745' : '#dc3545' ?>'
+            // Envio real do form usando fetch
+            const formData = new FormData(form);
+            const response = await fetch(location.href, {
+                method: 'POST',
+                body: formData
             });
-            <?php unset($_SESSION['toast']); ?>
-        <?php endif; ?>
+
+            if (response.ok) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Relato salvo!',
+        text: 'Obrigado por contribuir com a causa.',
+        confirmButtonColor: '#2e7d32'
+    }).then(() => {
+        window.location.href = '/projeto_senai/cliente';
+    });
+}
+else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao salvar',
+                    text: 'Tente novamente mais tarde.',
+                    confirmButtonColor: '#d33'
+                });
+            }
+        });
     </script>
 </body>
 </html>

@@ -7,25 +7,17 @@ $clienteModel = new Cliente();
 
 switch ($subRota) {
     case '':
-        $busca = trim($_GET['busca'] ?? '');
-
+        $busca = trim($_GET['busca_desaparecido'] ?? '');
         $dados = $clienteModel->buscarComTermo($busca);
 
-        // Verifica se houve uma busca
-        if ($busca !== '') {
-            if (empty($dados)) {
-                $_SESSION['toast'] = [
-                    'type' => 'error',
-                    'title' => 'Nenhum resultado encontrado',
-                    'message' => 'Nenhum usuário encontrado com esse termo.'
-                ];
-            } else {
-                $_SESSION['toast'] = [
-                    'type' => 'success',
-                    'title' => 'Sucesso',
-                    'message' => 'Resultados encontrados!'
-                ];
-            }
+        if (isset($_GET['busca_desaparecido'])) {
+            $_SESSION['toast'] = [
+                'type' => empty($dados) ? 'error' : 'success',
+                'title' => empty($dados) ? 'Nenhum resultado encontrado' : 'Sucesso!',
+                'message' => empty($dados)
+                    ? 'Nenhuma pessoa desaparecida com esse termo.'
+                    : 'Resultados encontrados!'
+            ];
         }
 
         require './views/clientes/consultaClientes.php';
@@ -51,7 +43,8 @@ switch ($subRota) {
                 ':nomeResponsavel' => $_POST['nomeResponsavel'],
                 ':telefoneResponsavel' => $_POST['telefoneResponsavel'],
                 ':parentescoResponsavel' => $_POST['parentescoResponsavel'],
-                ':observacao' => $_POST['observacao']
+                ':observacao' => $_POST['observacao'],
+                ':usuario_id' => $_SESSION['usuario']['id'] ?? null
             ];
 
             $resultado = $clienteModel->insert($campos);
@@ -74,9 +67,12 @@ switch ($subRota) {
                 $relato = trim($_POST['relato']);
                 if (!empty($relato)) {
                     $clienteModel->salvarRelato($id, $relato);
-                    $_SESSION['toast'] = ['type' => 'success', 'title' => 'Sucesso', 'message' => 'Relato salvo com sucesso!'];
                 } else {
-                    $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro', 'message' => 'O campo de relato não pode estar vazio.'];
+                    $_SESSION['toast'] = [
+                        'type' => 'error',
+                        'title' => 'Erro',
+                        'message' => 'O campo de relato não pode estar vazio.'
+                    ];
                 }
 
                 header("Location: /projeto_senai/cliente/detalhes/$id");
@@ -87,19 +83,62 @@ switch ($subRota) {
             if ($cliente) {
                 require './views/clientes/detalhesCliente.php';
             } else {
-                $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro!', 'message' => 'Cliente não encontrado.'];
+                $_SESSION['toast'] = [
+                    'type' => 'error',
+                    'title' => 'Erro!',
+                    'message' => 'Cliente não encontrado.'
+                ];
                 header('Location: /projeto_senai/cliente');
                 exit;
             }
         } else {
-            $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro!', 'message' => 'ID inválido.'];
+            $_SESSION['toast'] = [
+                'type' => 'error',
+                'title' => 'Erro!',
+                'message' => 'ID inválido.'
+            ];
             header('Location: /projeto_senai/cliente');
             exit;
         }
         break;
 
+    case 'encontrado':
+        $id = $caminho[2] ?? null;
+        if ($id && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $cliente = $clienteModel->buscarPorId($id);
+            if ($cliente && $_SESSION['usuario']['id'] == $cliente['usuario_id']) {
+                $clienteModel->marcarComoEncontrado($id);
+                $_SESSION['toast'] = [
+                    'type' => 'success',
+                    'title' => 'Pessoa marcada como encontrada!',
+                    'message' => 'A imagem será mantida na aba Encontrados.'
+                ];
+            } else {
+                $_SESSION['toast'] = [
+                    'type' => 'error',
+                    'title' => 'Ação não permitida',
+                    'message' => 'Você não tem permissão para marcar esta pessoa.'
+                ];
+            }
+            header("Location: /projeto_senai/cliente");
+            exit;
+        } else {
+            $_SESSION['toast'] = [
+                'type' => 'error',
+                'title' => 'Erro!',
+                'message' => 'Requisição inválida.'
+            ];
+            header("Location: /projeto_senai/cliente");
+            exit;
+        }
+        break;
+
     default:
-        $_SESSION['toast'] = ['type' => 'error', 'title' => 'Erro!', 'message' => 'Subrota cliente inválida.'];
+        $_SESSION['toast'] = [
+            'type' => 'error',
+            'title' => 'Erro!',
+            'message' => 'Subrota cliente inválida.'
+        ];
         header('Location: /projeto_senai/cliente');
         exit;
 }
