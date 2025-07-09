@@ -11,24 +11,56 @@ unset($_SESSION['cadastro_erro'], $_SESSION['cadastro_sucesso']);
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+
   <style>
+    :root {
+      --bg-light: #f1f8e9;
+      --bg-dark: #1e1e1e;
+      --text-light: #2e7d32;
+      --text-dark: #f1f1f1;
+      --card-light: #ffffff;
+      --card-dark: #2b2b2b;
+      --input-light: #f9fbe7;
+      --input-dark: #2d2d2d;
+      --border-light: #c8e6c9;
+      --border-dark: #444;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #f1f8e9;
+      background-color: var(--bg-light);
       font-family: 'Segoe UI', sans-serif;
-      color: #2e7d32;
+      color: var(--text-light);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    html.dark-mode body {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
     }
 
     .cadastro-container {
       max-width: 420px;
       margin: 0px auto;
       padding: 40px 30px;
-      background-color: #ffffff;
+      background-color: var(--card-light);
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
       border: 3px solid #81c784;
       text-align: center;
+      transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+    }
+
+    html.dark-mode .cadastro-container {
+      background-color: var(--card-dark);
+      color: var(--text-dark);
+      border: 1px solid var(--border-dark);
     }
 
     .cadastro-container h2 {
@@ -36,12 +68,16 @@ unset($_SESSION['cadastro_erro'], $_SESSION['cadastro_sucesso']);
       color: #1b5e20;
     }
 
+    html.dark-mode .cadastro-container h2 {
+      color: var(--text-dark);
+    }
+
     #fotoPreview {
       width: 120px;
       height: 120px;
       margin: 0 auto 24px auto;
       border-radius: 50%;
-      background-image: url('/projeto_senai/photos/user.png'); /* <-- caminho corrigido */
+      background-image: url('/projeto_senai/photos/user.png');
       background-size: cover;
       background-position: center center;
       border: 3px solid #81c784;
@@ -63,11 +99,21 @@ unset($_SESSION['cadastro_erro'], $_SESSION['cadastro_sucesso']);
       width: 100%;
       padding: 10px;
       margin-top: 4px;
-      border: 1px solid #c8e6c9;
+      border: 1px solid var(--border-light);
       border-radius: 6px;
       font-size: 15px;
-      background-color: #f9fbe7;
+      background-color: var(--input-light);
       box-sizing: border-box;
+      color: var(--text-light);
+    }
+
+    html.dark-mode .cadastro-container input[type="text"],
+    html.dark-mode .cadastro-container input[type="email"],
+    html.dark-mode .cadastro-container input[type="password"],
+    html.dark-mode .cadastro-container input[type="file"] {
+      background-color: var(--input-dark);
+      color: var(--text-dark);
+      border: 1px solid var(--border-dark);
     }
 
     .cadastro-container input:focus {
@@ -138,7 +184,7 @@ unset($_SESSION['cadastro_erro'], $_SESSION['cadastro_sucesso']);
   <script>
     const fotoInput = document.getElementById('foto');
     const fotoPreview = document.getElementById('fotoPreview');
-    const imgDefault = '/projeto_senai/photos/user.png'; // Caminho corrigido
+    const imgDefault = '/projeto_senai/photos/user.png';
 
     function setDefaultImage() {
       fotoPreview.style.backgroundImage = `url('${imgDefault}')`;
@@ -220,21 +266,21 @@ unset($_SESSION['cadastro_erro'], $_SESSION['cadastro_sucesso']);
     });
 
     <?php if ($erro): ?>
-      Swal.fire({
-        icon: 'error',
-        title: 'Erro no cadastro',
-        text: '<?= addslashes($erro) ?>',
-        confirmButtonColor: '#d33'
-      });
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro no cadastro',
+      text: '<?= addslashes($erro) ?>',
+      confirmButtonColor: '#d33'
+    });
     <?php elseif ($sucesso): ?>
-      Swal.fire({
-        icon: 'success',
-        title: 'Cadastro realizado!',
-        text: 'Você já pode fazer login.',
-        confirmButtonColor: '#4caf50'
-      }).then(() => {
-        window.location.href = '/projeto_senai/login';
-      });
+    Swal.fire({
+      icon: 'success',
+      title: 'Cadastro realizado!',
+      text: 'Você já pode fazer login.',
+      confirmButtonColor: '#4caf50'
+    }).then(() => {
+      window.location.href = '/projeto_senai/login';
+    });
     <?php endif; ?>
   </script>
 </body>

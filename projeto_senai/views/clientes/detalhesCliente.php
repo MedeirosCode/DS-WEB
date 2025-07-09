@@ -12,148 +12,152 @@ if (!isset($cliente)) {
     <title><?= htmlspecialchars($cliente['nomeCliente']) ?> - Detalhes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
-        :root {
-            --verde-escuro: #2e7d32;
-            --verde-medio: #43a047;
-            --verde-claro: #c8e6c9;
-            --bg: #f0fdf4;
-        }
+       :root {
+    --verde-escuro: #81c784;
+    --verde-medio: #66bb6a;
+    --verde-claro: #388e3c;
+    --fundo-escuro: #121212;
+    --texto-claro: #e0e0e0;
+    --cinza-medio: #2a2a2a;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg);
-        }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--fundo-escuro);
+    color: var(--texto-claro);
+}
 
-        .cliente-container {
-            max-width: 1100px;
-            margin: auto;
-            background-color: #fff;
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
+.cliente-container {
+    max-width: 1100px;
+    margin: auto;
+    background-color: var(--cinza-medio);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
 
-        .cliente-header {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-            margin-bottom: 30px;
-        }
+.cliente-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+}
 
-        .cliente-foto {
-            width: 220px;
-            height: 220px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 4px solid var(--verde-claro);
-            background-color: #eee;
-        }
+.cliente-foto {
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 4px solid var(--verde-claro);
+    background-color: #333;
+}
 
-        .sem-foto {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 220px;
-            height: 220px;
-            border-radius: 12px;
-            border: 4px solid var(--verde-claro);
-            font-size: 1rem;
-            background-color: #ddd;
-            color: #555;
-        }
+.sem-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    border: 4px solid var(--verde-claro);
+    font-size: 1rem;
+    background-color: #444;
+    color: #bbb;
+}
 
-        .cliente-info {
-            flex: 1;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 30px;
-        }
+.cliente-info {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 30px;
+}
 
-        .cliente-info h2 {
-            width: 100%;
-            font-size: 2.2rem;
-            color: var(--verde-escuro);
-            margin-bottom: 10px;
-        }
+.cliente-info h2 {
+    width: 100%;
+    font-size: 2.2rem;
+    color: var(--verde-escuro);
+    margin-bottom: 10px;
+}
 
-        .info-item {
-            width: calc(50% - 15px);
-            font-size: 1rem;
-        }
+.info-item {
+    width: calc(50% - 15px);
+    font-size: 1rem;
+}
 
-        .info-label {
-            font-weight: bold;
-            color: var(--verde-medio);
-        }
+.info-label {
+    font-weight: bold;
+    color: var(--verde-medio);
+}
 
-        .cliente-relatos {
-            margin-top: 40px;
-        }
+.cliente-relatos {
+    margin-top: 40px;
+}
 
-        .cliente-relatos h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-            color: var(--verde-escuro);
-        }
+.cliente-relatos h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: var(--verde-escuro);
+}
 
-        textarea {
-            width: 100%;
-            min-height: 130px;
-            padding: 14px;
-            font-size: 1rem;
-            border: 2px solid var(--verde-claro);
-            border-radius: 10px;
-            background-color: #f9fff9;
-            resize: vertical;
-        }
+textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 14px;
+    font-size: 1rem;
+    border: 2px solid var(--verde-claro);
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    color: var(--texto-claro);
+    resize: vertical;
+}
 
-        button {
-            margin-top: 16px;
-            padding: 12px 24px;
-            font-size: 1rem;
-            color: white;
-            background-color: var(--verde-medio);
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+button {
+    margin-top: 16px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--verde-medio);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        button:hover {
-            background-color: var(--verde-escuro);
-        }
+button:hover {
+    background-color: var(--verde-claro);
+}
 
-        @media (max-width: 768px) {
-            .cliente-header {
-                flex-direction: column;
-                align-items: center;
-            }
+@media (max-width: 768px) {
+    .cliente-header {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .cliente-foto,
-            .sem-foto {
-                width: 180px;
-                height: 180px;
-            }
+    .cliente-foto,
+    .sem-foto {
+        width: 180px;
+        height: 180px;
+    }
 
-            .cliente-info {
-                text-align: center;
-            }
+    .cliente-info {
+        text-align: center;
+    }
 
-            .info-item {
-                width: 100%;
-            }
+    .info-item {
+        width: 100%;
+    }
 
-            .cliente-info h2 {
-                font-size: 1.8rem;
-            }
-        }
+    .cliente-info h2 {
+        font-size: 1.8rem;
+    }
+}
     </style>
 </head>
 <body>

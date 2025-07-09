@@ -12,107 +12,121 @@ if (!defined('CONSULTA_RENDERIZADA')) { define('CONSULTA_RENDERIZADA', true); }
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-    :root {
+:root {
   --verde-escuro: #2e7d32;
   --verde-medio: #43a047;
-  --verde-claro: #c8e6c9;
-  --bg: #f0fdf4;
-  --white: #ffffff;
-  --cinza-borda: #cccccc;
-  --vermelho: #dc3545;
-  --vermelho-hover: #b71c1c;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --white: #fff;
+  --bg: #f1fdf3;
+  --text: #333;
+  --input-border: #ccc;
+  --bg-dark: #1e1e1e;
+  --text-dark: #f1f1f1;
+  --input-dark: #2d2d2d;
+  --card-dark: #2b2b2b;
+  --border-dark: #444;
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg);
-  color: #333;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+html.dark-mode body {
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 h1 {
   text-align: center;
-  margin: 40px 0 20px;
   color: var(--verde-escuro);
-  font-size: 2.5rem;
+  margin: 30px 0 15px;
+}
+
+html.dark-mode h1 {
+  color: var(--text-dark);
 }
 
 form.filtro {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto 30px;
+  padding: 6px 10px;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  background: var(--white);
+  border-radius: 8px;
+}
+
+html.dark-mode form.filtro {
+  background: var(--card-dark);
 }
 
 form.filtro input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--cinza-borda);
+  flex: 1;
+  padding: 8px;
   font-size: 1rem;
-  width: 60%;
-  background-color: var(--white);
-  color: #333;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: border 0.3s, box-shadow 0.3s;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  background: var(--white);
+  color: var(--text);
 }
 
-form.filtro input:focus {
-  outline: none;
-  border-color: var(--verde-medio);
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+html.dark-mode form.filtro input {
+  background: var(--input-dark);
+  color: var(--text-dark);
+  border: 1px solid var(--border-dark);
 }
 
-form.filtro button {
-  background-color: var(--verde-medio);
-  color: white;
-  cursor: pointer;
+.btn-verde {
+  padding: 6px 14px;
+  font-size: 0.9rem;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  width: 20%;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  background: var(--verde-medio);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap;
 }
 
-form.filtro button:hover {
-  background-color: var(--verde-escuro);
-  transform: scale(1.03);
+.btn-verde:hover {
+  background: var(--verde-escuro);
+}
+
+form.filtro > .btn-verde {
+  margin-left: 6px;
+}
+
+.formEncontrado {
+  margin-top: 8px;
 }
 
 .cards-container {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 10px 40px;
+  justify-content: center;
 }
 
 .card {
-  background-color: var(--white);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--white);
   width: 100%;
   max-width: 280px;
-  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: background 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+html.dark-mode .card {
+  background: var(--card-dark);
 }
 
 .card img {
@@ -123,71 +137,67 @@ form.filtro button:hover {
 
 .card-content {
   padding: 16px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background: var(--white);
+  transition: background-color 0.3s ease;
+}
+
+html.dark-mode .card-content {
+  background: var(--card-dark);
+  color: var(--text-dark);
 }
 
 .card h3 {
+  margin: 0;
   font-size: 1.25rem;
   color: var(--verde-escuro);
-  margin-bottom: 6px;
+}
+
+html.dark-mode .card h3 {
+  color: var(--text-dark);
 }
 
 .card p {
-  color: #555;
-  margin-bottom: 12px;
   font-size: 0.95rem;
+  margin: 8px 0 0;
+  color: #555;
+}
+
+html.dark-mode .card p {
+  color: #ccc;
 }
 
 .card a {
-  align-self: flex-start;
-  padding: 8px 16px;
-  background: var(--verde-medio);
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
   font-size: 0.9rem;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  background: var(--verde-medio);
+  color: var(--white);
+  border-radius: 6px;
 }
 
 .card a:hover {
   background: var(--verde-escuro);
 }
 
-.card form {
-  margin-top: 8px;
-}
-
-.card button {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  border: none;
-  background-color: var(--vermelho);
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.card button:hover {
-  background-color: var(--vermelho-hover);
-  transform: scale(1.02);
-}
-
 .no-results {
+  width: 100%;
   text-align: center;
-  font-size: 1.2rem;
   margin-top: 40px;
+  font-size: 1.2rem;
   color: red;
 }
 
 @media (max-width: 768px) {
+  form.filtro {
+    flex-wrap: wrap;
+  }
   form.filtro input,
-  form.filtro button {
+  form.filtro button,
+  .formEncontrado button {
     width: 100%;
+    margin-left: 0 !important;
   }
 }
 
@@ -195,12 +205,10 @@ form.filtro button:hover {
   .card img {
     height: 350px;
   }
-
   h1 {
     font-size: 2rem;
   }
 }
-
 </style>
 </head>
 <body>
@@ -210,9 +218,8 @@ form.filtro button:hover {
 <form method="GET" class="filtro">
   <input type="text" name="busca_desaparecido" placeholder="Digite um nome, cidade ou estado..."
          value="<?= htmlspecialchars($_GET['busca_desaparecido'] ?? '', ENT_QUOTES) ?>">
-  <button type="submit">🔍 Buscar</button>
+  <button type="submit" class="btn-verde">🔍 Buscar</button>
 </form>
-
 
 <div class="cards-container">
     <?php if (empty($dados)): ?>
@@ -237,7 +244,7 @@ form.filtro button:hover {
 
                     <?php if (isset($_SESSION['usuario']['id']) && $_SESSION['usuario']['id'] == $cliente['usuario_id']): ?>
                         <form method="POST" action="/projeto_senai/cliente/encontrado/<?= (int)$cliente['idCliente'] ?>" class="formEncontrado">
-                            <button type="submit">Pessoa Encontrada</button>
+                            <button type="submit" class="btn-verde">Pessoa Encontrada</button>
                         </form>
                     <?php endif; ?>
                 </div>
@@ -251,7 +258,6 @@ form.filtro button:hover {
 document.querySelectorAll('.formEncontrado').forEach(form => {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-
         Swal.fire({
             title: 'Tem certeza?',
             text: "Você quer marcar essa pessoa como encontrada?",
@@ -280,7 +286,6 @@ Swal.fire({
 });
 </script>
 <?php unset($_SESSION['toast']); endif; ?>
-
 
 </body>
 </html>

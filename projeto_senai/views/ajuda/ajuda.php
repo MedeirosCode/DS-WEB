@@ -28,7 +28,7 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    body.dark-mode {
+    html.dark-mode body {
       background-color: var(--bg-escuro);
       color: var(--texto-escuro);
     }
@@ -39,7 +39,7 @@
       margin-bottom: 30px;
     }
 
-    body.dark-mode h1 {
+    html.dark-mode h1 {
       color: #a5d6a7;
     }
 
@@ -53,7 +53,7 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    body.dark-mode .faq-container {
+    html.dark-mode .faq-container {
       background: var(--caixa-escura);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
@@ -65,7 +65,7 @@
       cursor: pointer;
     }
 
-    body.dark-mode .faq-item {
+    html.dark-mode .faq-item {
       border-color: #555;
     }
 
@@ -111,7 +111,6 @@
       background: var(--verde-escuro);
     }
 
-    /* WhatsApp botão flutuante */
     .whatsapp-button {
       position: fixed;
       bottom: 20px;
@@ -188,13 +187,12 @@
     </div>
   </div>
 
-  <!-- Botão do WhatsApp -->
   <a href="https://wa.me/5515991770288" target="_blank" class="whatsapp-button" title="Fale conosco no WhatsApp">
     💬
   </a>
 
   <script>
-    // Toggle das respostas do FAQ
+    // Ativa/expande respostas do FAQ
     document.querySelectorAll('.faq-item h2').forEach(item => {
       item.addEventListener('click', () => {
         const parent = item.parentElement;
@@ -202,10 +200,10 @@
       });
     });
 
-    // Ativa modo escuro se estiver salvo no localStorage
+    // Aplica modo escuro direto ao carregar, se estiver salvo
     window.onload = () => {
       if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
       }
     };
   </script>

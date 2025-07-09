@@ -24,7 +24,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark-mode {
+    html.dark-mode body {
       background-color: var(--bg-dark);
       color: var(--text-dark);
     }
@@ -45,7 +45,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark-mode section {
+    html.dark-mode section {
       background: var(--card-dark);
       color: var(--text-dark);
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
@@ -56,8 +56,8 @@
       margin-bottom: 12px;
     }
 
-    body.dark-mode h1,
-    body.dark-mode h2 {
+    html.dark-mode h1,
+    html.dark-mode h2 {
       color: #a5d6a7;
     }
 
@@ -73,7 +73,7 @@
       color: #2e7d32dd;
     }
 
-    body.dark-mode ul {
+    html.dark-mode ul {
       color: #dcedc8;
     }
 
@@ -87,7 +87,7 @@
       color: #2e7d32cc;
     }
 
-    body.dark-mode p {
+    html.dark-mode p {
       color: #c8e6c9;
     }
 
@@ -95,7 +95,7 @@
       color: #1b5e20;
     }
 
-    body.dark-mode strong {
+    html.dark-mode strong {
       color: #81c784;
     }
 
@@ -192,7 +192,7 @@
   // Ativar modo escuro automático se salvo no localStorage
   window.onload = () => {
     if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
+      document.documentElement.classList.add('dark-mode');
     }
   };
 </script>

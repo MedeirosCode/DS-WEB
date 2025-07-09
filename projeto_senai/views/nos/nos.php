@@ -15,7 +15,10 @@
       --bg-dark: #121212;
       --caixa-dark: #1f1f1f;
       --texto-dark: #f1f1f1;
+      --titulo-dark: #a5d6a7;
+      --destaque-dark: #c8e6c9;
       --borda-dark: #388e3c;
+      --sombra-dark: rgba(0, 0, 0, 0.4);
     }
 
     * {
@@ -36,7 +39,7 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    body.dark-mode {
+    html.dark-mode body {
       background-color: var(--bg-dark);
       color: var(--texto-dark);
     }
@@ -57,11 +60,11 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    body.dark-mode .container {
+    html.dark-mode .container {
       background: var(--caixa-dark);
       color: var(--texto-dark);
       border-color: var(--borda-dark);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 30px var(--sombra-dark);
     }
 
     h1 {
@@ -75,8 +78,8 @@
       transition: color 0.3s ease;
     }
 
-    body.dark-mode h1 {
-      color: #a5d6a7;
+    html.dark-mode h1 {
+      color: var(--titulo-dark);
       text-shadow: none;
     }
 
@@ -90,13 +93,14 @@
       display: block;
       margin-top: 25px;
       font-weight: 700;
-      color: var(--verde-escuro);
       font-size: 1.35rem;
       text-align: center;
+      color: var(--verde-escuro);
+      transition: color 0.3s ease;
     }
 
-    body.dark-mode strong {
-      color: #c8e6c9;
+    html.dark-mode strong {
+      color: var(--destaque-dark);
     }
 
     @media (max-width: 800px) {
@@ -130,8 +134,6 @@
 </head>
 <body>
 
-  <!-- Coloque seu menu aqui, fora da div container -->
-
   <div class="container" role="main" aria-labelledby="quemSomosTitulo">
     <h1 id="quemSomosTitulo">Quem Somos Nós</h1>
     <p>Somos um grupo de estudantes movidos pela empatia e pelo desejo de fazer a diferença. Criamos este site com o propósito de auxiliar na localização de pessoas desaparecidas, oferecendo uma plataforma acessível, segura e colaborativa.</p>
@@ -142,10 +144,10 @@
   </div>
 
   <script>
-    // Aplica automaticamente o modo escuro se salvo no localStorage
+    // Corrigido: aplica a classe no <html> e não no <body>
     window.onload = () => {
       if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
       }
     };
   </script>

@@ -5,172 +5,173 @@
     <meta charset="UTF-8">
     <title>Configurações do Usuário</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
     :root {
-      --bg-light: #f0fdf4;
-      --bg-dark: #1e1e1e;
-      --card-light: #ffffff;
-      --card-dark: #2c2c2c;
-      --input-dark: #3a3a3a;
-      --text-dark: #f1f1f1;
-      --text-light: #2e7d32;
-      --accent: #4caf50;
-    }
+  --bg-light: #f0fdf4;
+  --bg-dark: #1e1e1e;
+  --card-light: #ffffff;
+  --card-dark: #2c2c2c;
+  --input-dark: #3a3a3a;
+  --text-dark: #f1f1f1;
+  --text-light: #2e7d32;
+  --accent: #4caf50;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg-light);
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s ease;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-light);
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s ease;
+}
 
-    body.dark-mode {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-    }
+html.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
 
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: var(--card-light);
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: background 0.3s ease;
-    }
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--card-light);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: background 0.3s ease;
+}
 
-    body.dark-mode .container {
-      background-color: var(--card-dark);
-      color: var(--text-dark);
-    }
+html.dark-mode .container {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+}
 
-    .formulario {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .div-photo {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.div-photo {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .photo-user {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #a5d6a7;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+.photo-user {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #a5d6a7;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-    .div-photo p {
-      margin-top: 10px;
-      color: #555;
-      font-size: 0.9rem;
-    }
+.div-photo p {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.9rem;
+}
 
-    label {
-      font-weight: bold;
-      color: var(--text-light);
-    }
+label {
+  font-weight: bold;
+  color: var(--text-light);
+}
 
-    body.dark-mode label {
-      color: var(--text-dark);
-    }
+html.dark-mode label {
+  color: var(--text-dark);
+}
 
-    input[type="text"],
-    input[type="password"],
-    input[type="file"] {
-      padding: 10px;
-      border: 1px solid #c8e6c9;
-      border-radius: 6px;
-      width: 100%;
-      background-color: #f9fff9;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  width: 100%;
+  background-color: #f9fff9;
+  transition: background 0.3s ease, color 0.3s ease;
+}
 
-    body.dark-mode input[type="text"],
-    body.dark-mode input[type="password"],
-    body.dark-mode input[type="file"] {
-      background-color: var(--input-dark);
-      color: var(--text-dark);
-      border: 1px solid #555;
-    }
+html.dark-mode input[type="text"],
+html.dark-mode input[type="password"],
+html.dark-mode input[type="file"] {
+  background-color: var(--input-dark);
+  color: var(--text-dark);
+  border: 1px solid #555;
+}
 
-    input[type="submit"]:disabled {
-      background: #d0ecd3;
-      cursor: not-allowed;
-      opacity: 1;
-      color: #2e7d32;
-      border: 2px solid #66bb6a;
-      border-radius: 8px;
-    }
+input[type="submit"]:disabled {
+  background: #d0ecd3;
+  cursor: not-allowed;
+  opacity: 1;
+  color: #2e7d32;
+  border: 2px solid #66bb6a;
+  border-radius: 8px;
+}
 
-    input[type="submit"] {
-      background: linear-gradient(135deg, #43a047, #66bb6a);
-      color: white;
-      padding: 12px 20px;
-      border: 2px solid #66bb6a;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
+input[type="submit"] {
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: white;
+  padding: 12px 20px;
+  border: 2px solid #66bb6a;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
 
-    input[type="submit"]:hover:enabled {
-      background: linear-gradient(135deg, #2e7d32, #4caf50);
-      transform: scale(1.02);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    }
+input[type="submit"]:hover:enabled {
+  background: linear-gradient(135deg, #2e7d32, #4caf50);
+  transform: scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
 
-    .button-edit {
-      background: linear-gradient(135deg, #1b5e20, #2e7d32);
-      color: white;
-      padding: 12px 24px;
-      border: 2px solid #66bb6a;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
+.button-edit {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+  color: white;
+  padding: 12px 24px;
+  border: 2px solid #66bb6a;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .button-edit:hover {
-      background: linear-gradient(135deg, #004d20, #1b5e20);
-      transform: scale(1.03);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    }
+.button-edit:hover {
+  background: linear-gradient(135deg, #004d20, #1b5e20);
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
 
-    .botoes-flex {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
+.botoes-flex {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
 
-    .botoes-flex input[type="submit"],
-    .botoes-flex .button-edit {
-      flex: 1 1 45%;
-      min-width: 140px;
-    }
+.botoes-flex input[type="submit"],
+.botoes-flex .button-edit {
+  flex: 1 1 45%;
+  min-width: 140px;
+}
 
-    @media(max-width: 600px) {
-      .photo-user {
-        width: 140px;
-        height: 140px;
-      }
+@media(max-width: 600px) {
+  .photo-user {
+    width: 140px;
+    height: 140px;
+  }
 
-      .container {
-        padding: 20px;
-      }
-    }
-  </style>
+  .container {
+    padding: 20px;
+  }
+}
+</style>
 </head>
 <body>
 

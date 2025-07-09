@@ -1,25 +1,66 @@
 <!-- SweetAlert2 CDN -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script>
+  // Aplica dark mode cedo
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+  }
+</script>
+
 <style>
+  :root {
+    --bg-light: #e8f5e9;
+    --text-light: #2e7d32;
+    --text-dark: #f1f1f1;
+    --bg-dark: #1e1e1e;
+    --card-dark: #2b2b2b;
+    --border-dark: #444;
+    --input-dark: #2d2d2d;
+    --accent: #4caf50;
+    --accent-hover: #388e3c;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-light);
+    color: var(--text-light);
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark-mode body {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+  }
+
   .login-container {
     max-width: 400px;
     margin: 80px auto;
-    background: #e8f5e9;
+    background: var(--bg-light);
     padding: 40px 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
-    font-family: 'Segoe UI', sans-serif;
-    color: #2e7d32;
-
-    /* borda verde médio arredondada */
+    color: var(--text-light);
     border: 3px solid #81c784;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark-mode .login-container {
+    background: var(--card-dark);
+    color: var(--text-dark);
+    border: 1px solid var(--border-dark);
   }
 
   .login-container h2 {
     text-align: center;
     margin-bottom: 24px;
     color: #1b5e20;
+  }
+
+  html.dark-mode .login-container h2 {
+    color: var(--text-dark);
   }
 
   .login-container label {
@@ -32,15 +73,24 @@
   .login-container input[type="password"] {
     width: 100%;
     padding: 10px 12px;
-    border: 1px solidrgb(0, 255, 8);
+    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 15px;
     margin-top: 4px;
     background-color: #ffffff;
+    color: #000;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+  }
+
+  html.dark-mode .login-container input[type="email"],
+  html.dark-mode .login-container input[type="password"] {
+    background-color: var(--input-dark);
+    color: var(--text-dark);
+    border: 1px solid var(--border-dark);
   }
 
   .login-container input:focus {
-    border-color: #4caf50;
+    border-color: var(--accent);
     outline: none;
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
   }
@@ -48,7 +98,7 @@
   .login-container button {
     width: 100%;
     padding: 12px;
-    background-color: #4caf50;
+    background-color: var(--accent);
     color: white;
     border: none;
     border-radius: 8px;
@@ -60,7 +110,7 @@
   }
 
   .login-container button:hover {
-    background-color: #388e3c;
+    background-color: var(--accent-hover);
   }
 
   .login-container p {
@@ -70,9 +120,13 @@
   }
 
   .login-container a {
-    color: #2e7d32;
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
+  }
+
+  html.dark-mode .login-container a {
+    color: var(--text-dark);
   }
 
   .login-container a:hover {
@@ -110,7 +164,7 @@
 
   <p>Não tem conta? <a href="/projeto_senai/cadastro">Cadastre-se aqui</a></p>
   <div style="text-align:center; margin-top: 10px;">
-    <a href="/projeto_senai/esqueci" style="color:#388e3c; font-size: 14px;">Esqueceu sua senha?</a>
+    <a href="/projeto_senai/esqueci" style="font-size: 14px;">Esqueceu sua senha?</a>
   </div>
 </div>
 

@@ -30,6 +30,13 @@ function isActive($route) {
   <link rel="icon" href="/projeto_senai/photos/logo.jpeg">
   <title>Desaparecidos Brasil - Perfil</title>
   <script src="https://unpkg.com/lucide@latest"></script>
+   <script>
+    // Aplica dark-mode o mais cedo possível
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark-mode');
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
   :root {
     --bg-light: #e8f5e9;
@@ -55,7 +62,7 @@ function isActive($route) {
     transition: background 0.3s ease, color 0.3s ease;
   }
 
-  body.dark-mode {
+  html.dark-mode body {
     background: var(--bg-dark);
     color: var(--text-dark);
   }
@@ -64,34 +71,34 @@ function isActive($route) {
     transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
   }
 
-  body.dark-mode input,
-  body.dark-mode select,
-  body.dark-mode textarea {
+  html.dark-mode input,
+  html.dark-mode select,
+  html.dark-mode textarea {
     background-color: var(--input-dark);
     color: var(--text-dark);
     border: 1px solid var(--border-dark);
   }
 
-  body.dark-mode .form-wrapper,
-  body.dark-mode .campo-form,
-  body.dark-mode form,
-  body.dark-mode .formulario-cadastro {
+  html.dark-mode .form-wrapper,
+  html.dark-mode .campo-form,
+  html.dark-mode form,
+  html.dark-mode .formulario-cadastro {
     background-color: var(--card-dark) !important;
     border-color: var(--border-dark) !important;
   }
 
-  body.dark-mode .campo-form label {
+  html.dark-mode .campo-form label {
     color: var(--text-dark);
   }
 
-  body.dark-mode button,
-  body.dark-mode .btn-enviar {
+  html.dark-mode button,
+  html.dark-mode .btn-enviar {
     background-color: var(--accent-dark);
     color: #fff;
   }
 
-  body.dark-mode button:hover,
-  body.dark-mode .btn-enviar:hover {
+  html.dark-mode button:hover,
+  html.dark-mode .btn-enviar:hover {
     background-color: #2e7d32;
   }
 
@@ -113,14 +120,17 @@ function isActive($route) {
     justify-content: space-between;
   }
 
-  body.dark-mode .sidebar-perfil {
+  html.dark-mode .sidebar-perfil {
     background-color: #2a2a2a;
     color: var(--text-dark);
   }
 
   .sidebar-perfil.show { transform: translateX(0); }
+
   .sidebar-perfil h2 { margin-top: 60px; margin-bottom: 30px; font-size: 20px; font-weight: 700; }
+
   .sidebar-perfil ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+
   .sidebar-perfil a {
     display: flex;
     align-items: center;
@@ -133,18 +143,22 @@ function isActive($route) {
     font-size: 15px;
     font-weight: 600;
   }
+
   .sidebar-perfil a:hover {
     background-color: #c8e6c9;
   }
-  body.dark-mode .sidebar-perfil a:hover {
+
+  html.dark-mode .sidebar-perfil a:hover {
     background-color: #3a3a3a;
   }
+
   .sidebar-perfil a.active {
     background-color: #81c784;
     font-weight: 700;
     box-shadow: inset 3px 0 0 0 var(--accent-dark);
   }
-  body.dark-mode .sidebar-perfil a.active {
+
+  html.dark-mode .sidebar-perfil a.active {
     background-color: #4caf50;
   }
 
@@ -172,7 +186,7 @@ function isActive($route) {
     flex-wrap: wrap;
   }
 
-  body.dark-mode .menu-container {
+  html.dark-mode .menu-container {
     background: #333;
   }
 
@@ -204,8 +218,8 @@ function isActive($route) {
     font-weight: 700;
   }
 
-  body.dark-mode .menu-centro li a,
-  body.dark-mode .menu-centro li a.active {
+  html.dark-mode .menu-centro li a,
+  html.dark-mode .menu-centro li a.active {
     color: var(--text-dark);
     border-bottom-color: #81c784;
   }
@@ -376,18 +390,21 @@ function isActive($route) {
     });
 
     btnDark.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-      btnDark.textContent = document.body.classList.contains('dark-mode') ? '☀️ Modo Claro' : '🌙 Modo Escuro';
-    });
+  const html = document.documentElement;
+  const isDark = html.classList.toggle('dark-mode');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  btnDark.textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+});
 
-    window.onload = () => {
-      lucide.createIcons();
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        if (btnDark) btnDark.textContent = '☀️ Modo Claro';
-      }
-    }
+window.onload = () => {
+  lucide.createIcons();
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark-mode');
+    if (btnDark) btnDark.textContent = '☀️ Modo Claro';
+  }
+};
+
+    
   </script>
 </body>
 </html>
