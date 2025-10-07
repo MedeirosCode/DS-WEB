@@ -77,3 +77,10 @@ Nesta aula pratiquei **fundamentos do Bootstrap** que permitem:
 - Estruturar **cards e portfólios**.  
 - Usar **bordas, alinhamentos e transformações de texto**.  
 - Montar uma **página de apresentação pessoal responsiva** apenas com Bootstrap.  
+
+# Aula 03 – Bootstrap  
+
+Neste trablho pratiquei **Conceitos de Container e Breakpoints** que possibilitam:
+- Usufruir de inúmeros tipos de **Containers** na tela
+- Utilizar da **Responsividade** para manter o visual em diferentes dispositivos
+- 

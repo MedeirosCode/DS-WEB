@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid System e Cards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .card-img-top {
+        height: 200px; /* altura igual para todas */
+        object-fit: cover; /* mantém proporção cortando o excesso */
+      }
+    </style>
+  </head>
+
+  <body class="bg-light" style="padding-top: 80px;">
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Loja Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="container my-5">
+      <h1 class="text-center mb-4">Nossos Produtos</h1>
+
+      <!-- Primeira linha -->
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/1.webp" class="card-img-top" alt="Produto 1">
+            <div class="card-body">
+              <h5 class="card-title">Produto 1</h5>
+              <p class="card-text">Descrição breve do produto 1. Excelente qualidade e ótimo preço.</p>
+              <p class="fw-bold text-success">R$ 99,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/2.webp" class="card-img-top" alt="Produto 2">
+            <div class="card-body">
+              <h5 class="card-title">Produto 2</h5>
+              <p class="card-text">Descrição breve do produto 2. Ideal para o dia a dia.</p>
+              <p class="fw-bold text-success">R$ 129,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/3.jpg" class="card-img-top" alt="Produto 3">
+            <div class="card-body">
+              <h5 class="card-title">Produto 3</h5>
+              <p class="card-text">Descrição breve do produto 3. Produto novo e moderno.</p>
+              <p class="fw-bold text-success">R$ 89,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/4.jpg" class="card-img-top" alt="Produto 4">
+            <div class="card-body">
+              <h5 class="card-title">Produto 4</h5>
+              <p class="card-text">Descrição breve do produto 4. Alta durabilidade e design elegante.</p>
+              <p class="fw-bold text-success">R$ 149,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segunda linha -->
+      <div class="row g-4 mt-3">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/Entenda-o-que-é-o-Durateston-para-que-serve-benefícios-função-excesso-efeitos-colaterais-como-tomar.jpg" class="card-img-top" alt="Produto 5">
+            <div class="card-body">
+              <h5 class="card-title">Produto 5</h5>
+              <p class="card-text">Descrição breve do produto 5. Prático e funcional.</p>
+              <p class="fw-bold text-success">R$ 59,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/6.webp" class="card-img-top" alt="Produto 6">
+            <div class="card-body">
+              <h5 class="card-title">Produto 6</h5>
+              <p class="card-text">Descrição breve do produto 6. Um dos mais vendidos!</p>
+              <p class="fw-bold text-success">R$ 199,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/7.webp" class="card-img-top" alt="Produto 7">
+            <div class="card-body">
+              <h5 class="card-title">Produto 7</h5>
+              <p class="card-text">Descrição breve do produto 7. Ideal para presente.</p>
+              <p class="fw-bold text-success">R$ 79,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100">
+            <img src="img/8.webp" class="card-img-top" alt="Produto 8">
+            <div class="card-body">
+              <h5 class="card-title">Produto 8</h5>
+              <p class="card-text">Descrição breve do produto 8. Compacto e eficiente.</p>
+              <p class="fw-bold text-success">R$ 109,90</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
